@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="lightBlue">#32ccff</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="FirstScreenBackground">#f2f4f5</color>
+    <color name="dayTextColor">#1e212b</color>
+    <color name="selectedItemColor">#32ccff</color>
+    <color name="red">#ff453a</color>
+    <color name="orange">#ff9f0c</color>
+    <color name="yellow">#ffd50c</color>
+    <color name="green">#32d74b</color>
+    <color name="lightblue">#64d2ff</color>
+    <color name="blue">#0984ff</color>
+    <color name="bluedark">#5e5ce6</color>
+    <color name="purple">#bf5af2</color>
+    <color name="rose">#ff375f</color>
+</resources>

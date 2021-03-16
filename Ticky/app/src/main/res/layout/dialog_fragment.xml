@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    >
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="243dp"
+        android:padding="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_medium"
+            android:text="@string/sort_by_123"
+            android:textColor="#1e212b"
+            android:textSize="24sp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="15dp"
+            />
+
+        <RadioButton
+            android:enabled="true"
+            android:id="@+id/date_added"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_medium"
+            android:text="@string/date_added"
+            android:textSize="14sp"
+            android:layout_marginBottom="7dp"
+            android:textColorHint="@android:color/black"
+            android:buttonTint="@android:color/black"
+            />
+
+        <RadioButton
+            android:layout_marginBottom="7dp"
+            android:id="@+id/due_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_medium"
+            android:text="@string/due_date"
+            android:textSize="14sp"
+            android:buttonTint="@android:color/black"
+
+            android:textColorHint="@android:color/black"
+            />
+
+        <RadioButton
+
+            android:layout_marginBottom="7dp"
+            android:id="@+id/color_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_medium"
+            android:text="@string/color_label"
+            android:textSize="14sp"
+            android:buttonTint="@android:color/black"
+
+            android:textColorHint="@android:color/black"
+            />
+
+
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
