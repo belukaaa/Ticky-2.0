@@ -597,7 +597,9 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
 
         val datePickerDialog =
             DatePickerDialog(requireContext(), R.style.DatePickerDialog, this, year, month, day)
+//        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000)
         datePickerDialog.show()
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000)
         datePickerDialog.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK)
         datePickerDialog.getButton(DatePickerDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK)
         //0xFF0000FF
@@ -720,7 +722,7 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
         if(month == 11){
             myMonth = ("Dec")
         }
-        TASK_DATE= "Due $dayOfMonth $myMonth,"
+        TASK_DATE= "Due $dayOfMonth $myMonth"
         if(dayOfMonth == 0 && myMonth.isEmpty()){
             calendar.visibility = VISIBLE
         }else{

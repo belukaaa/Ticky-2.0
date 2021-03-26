@@ -21,6 +21,7 @@ class TodoListAdapter (val click : (list : List<Taskie> , itemView: ArrayList<Vi
     private var taskList1 = ArrayList<Taskie>()
     private var taskList = ArrayList<Taskie>()
     private var checkedTaskList = ArrayList<Taskie>()
+
     inner class TodoListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)  {
 
         fun setData(task: Taskie , holder: TodoListViewHolder , position: Int) {
@@ -71,7 +72,8 @@ class TodoListAdapter (val click : (list : List<Taskie> , itemView: ArrayList<Vi
 
 //                listener2?.updateTask(task , itemView)
 
-                notifyDataSetChanged()
+
+
             }
         }
 
@@ -96,6 +98,8 @@ class TodoListAdapter (val click : (list : List<Taskie> , itemView: ArrayList<Vi
         holder.checkTask(currentItem)
 
         holder.itemView.linearLayout.setBackgroundResource(R.drawable.viewholder_background)
+
+        holder.itemView.checkBox.setButtonDrawable(R.drawable.unselected_task_checkbox)
 
         holder.itemView.checkBox.isChecked = false
         holder.setData(currentItem , holder , position)
@@ -152,9 +156,9 @@ class TodoListAdapter (val click : (list : List<Taskie> , itemView: ArrayList<Vi
 
 
     fun setData(task: List<Taskie>) {
-        this.taskList.clear()
-        this.taskList.addAll(task)
-        notifyDataSetChanged()
+            this.taskList.clear()
+            this.taskList.addAll(task)
+            notifyDataSetChanged()
     }
 
     var listener22 : UpdateAllTasks? = null

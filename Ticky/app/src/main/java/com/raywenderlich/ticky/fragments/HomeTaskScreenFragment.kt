@@ -133,31 +133,33 @@ class HomeTaskScreenFragment: Fragment() , SelectedTaskAdapter.unSelectListener 
 
 
 
+//
+//
+//        cancel_selecting.setOnClickListener {
+//            List.clear()
+//
+//            mTaskViewModel.getSelectedData().observe(viewLifecycleOwner, Observer { user ->
+//                adapter.setData(user)
+//            })
+//            mTaskViewModel.getUnSelectedData().observe(viewLifecycleOwner, Observer { user ->
+//                selectedAdapter.setSelectedData(user)
+//            })
+//            hideDeleteDonebttns()
+//        }
 
 
-        cancel_selecting.setOnClickListener {
-            List.clear()
-
-            mTaskViewModel.getSelectedData().observe(viewLifecycleOwner, Observer { user ->
-                adapter.setData(user)
-            })
-            mTaskViewModel.getUnSelectedData().observe(viewLifecycleOwner, Observer { user ->
-                selectedAdapter.setSelectedData(user)
-            })
-            hideDeleteDonebttns()
-        }
-
-
-        done_button.setOnClickListener {
-            List.forEach { task ->
-                task.selected = true
-                task.checked = false
-                mTaskViewModel.updateTask(task)
-            }
-            List.clear()
-            adapter.notifyDataSetChanged()
-            hideDeleteDonebttns()
-        }
+//        done_button.setOnClickListener {
+//            List.forEach { task ->
+//                task.selected = true
+//                task.checked = false
+//
+//                mTaskViewModel.updateTask(task)
+//
+//            }
+//            List.clear()
+//            adapter.notifyDataSetChanged()
+//            hideDeleteDonebttns()
+//        }
         view.textView5.setOnClickListener {
             var data = showDialog()
         }
@@ -176,9 +178,6 @@ class HomeTaskScreenFragment: Fragment() , SelectedTaskAdapter.unSelectListener 
 
     private fun showDialog(){
         val dialog = CustomDialogFragment()
-
-
-
 
         dialog.show(childFragmentManager, "CustomDialog")
     }
@@ -715,6 +714,32 @@ class HomeTaskScreenFragment: Fragment() , SelectedTaskAdapter.unSelectListener 
     private fun okey(list: List<Taskie>, itemView: ArrayList<View>, position: ArrayList<Int>){
         this.List = list as ArrayList<Taskie>
 
+        done_button.setOnClickListener {
+            List.forEach { task ->
+                task.selected = true
+                task.checked = false
+
+                mTaskViewModel.updateTask(task)
+
+            }
+            List.clear()
+            hideDeleteDonebttns()
+        }
+
+        cancel_selecting.setOnClickListener {
+           list.forEach {
+               it.checked = false
+           }
+
+
+            position.clear()
+            itemView.clear()
+            list.clear()
+            adapter.notifyDataSetChanged()
+            hideDeleteDonebttns()
+        }
+
+
 
         delete_task_button.setOnClickListener {
             val anim = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_out)
@@ -764,6 +789,7 @@ class HomeTaskScreenFragment: Fragment() , SelectedTaskAdapter.unSelectListener 
 
 
 
+
                 }
 
                 override fun onAnimationRepeat(animation: Animation?) {
@@ -772,9 +798,7 @@ class HomeTaskScreenFragment: Fragment() , SelectedTaskAdapter.unSelectListener 
 
             })
 
-            list.forEach {
-                adapter.notifyItemRemoved(it.taskId)
-            }
+
 
             Log.e("Delete2 " , "$list $List")
 

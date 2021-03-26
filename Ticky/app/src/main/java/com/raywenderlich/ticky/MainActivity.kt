@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity(), OnboardingFragment.ButtonClicked,
 
 
 
+
     }
 
     private fun initViewModel(context: Context) {
@@ -209,11 +210,12 @@ class MainActivity : AppCompatActivity(), OnboardingFragment.ButtonClicked,
 
 
     override fun taskAdd() {
-        supportFragmentManager
-            .beginTransaction()
-            .addSharedElement(Task_input, Task_input.transitionName)
-            .replace(R.id.frame_id, homeTaskScreenFragment)
-            .commit()
+        startingApp()
+//        supportFragmentManager
+//            .beginTransaction()
+//            .addSharedElement(Task_input, Task_input.transitionName)
+//            .replace(R.id.frame_id, homeTaskScreenFragment)
+//            .commit()
     }
 
     override fun homeTaskScrenButton() {
