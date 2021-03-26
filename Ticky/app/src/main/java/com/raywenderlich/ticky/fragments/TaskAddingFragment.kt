@@ -645,6 +645,7 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
     }
 
     var listener : BttnClicked? = null
+
     interface BttnClicked {
         fun bttnClicked()
 

@@ -18,6 +18,7 @@ import com.raywenderlich.ticky.fragments.*
 import com.raywenderlich.ticky.repository.Factory
 import com.raywenderlich.ticky.repository.TaskViewModel
 import com.raywenderlich.ticky.repository.TaskieRepository
+import com.raywenderlich.ticky.taskrecyclerview.TodoListAdapter
 import kotlinx.android.synthetic.main.adding_activity_task.*
 import kotlinx.android.synthetic.main.adding_activity_task.view.*
 import kotlinx.android.synthetic.main.dialog_fragment.*
@@ -28,11 +29,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.ArrayList
 
 
 class MainActivity : AppCompatActivity(), OnboardingFragment.ButtonClicked,
     FirstScreenFragment.Click, TaskAddingFragment.BttnClicked, TaskAddingFragment.Task_addingButton,
-    HomeTaskScreenFragment.HomeTaskScreenButton , CustomDialogFragment.DialogSorting  {
+    HomeTaskScreenFragment.HomeTaskScreenButton , CustomDialogFragment.DialogSorting , TaskEditClass.ICancelEditing{
 
 
 
@@ -45,7 +47,10 @@ class MainActivity : AppCompatActivity(), OnboardingFragment.ButtonClicked,
     private lateinit var FirstScreenFrag: FirstScreenFragment
     private lateinit var mySharedPref: MySharedPreference
     private lateinit var addTaskFrag: TaskAddingFragment
+    private lateinit var editTaskFrag : TaskEditClass
     private lateinit var repository: TaskieRepository
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,15 +63,11 @@ class MainActivity : AppCompatActivity(), OnboardingFragment.ButtonClicked,
         FirstScreenFrag = FirstScreenFragment.getFirstScreenFragInstance()
         mySharedPref = MySharedPreference(this)
         addTaskFrag = TaskAddingFragment.getTaskFragInstance()
-        homeTaskScreenFragment = HomeTaskScreenFragment.getHomeTaskScrenFragment()
+        homeTaskScreenFragment = HomeTaskScreenFragment(EditTask = {task -> editTask(task)})
 
 
         initViewModel(this)
-
         startingApp()
-
-
-
 
     }
 
@@ -275,7 +276,37 @@ class MainActivity : AppCompatActivity(), OnboardingFragment.ButtonClicked,
 //        }
     }
 
+    fun editTask(task: Taskie) {
 
+        supportFragmentManager
+            .beginTransaction()
+            .setCustomAnimations(
+                R.anim.slide_in_up,
+                R.anim.slide_out_down,
+                R.anim.slide_in_up,
+                R.anim.slide_out_down
+            )
+            .replace(R.id.frame_id, TaskEditClass(task))
+            .commit()
+
+
+      //  Log.e("TaskForEditing" , "TaskForEditing -> ${task.title} , ${task.color} , ${task.datetime}")
+
+
+    }
+
+    override fun cancelEditing() {
+        supportFragmentManager
+            .beginTransaction()
+            .setCustomAnimations(
+                R.anim.slide_in,
+                R.anim.first_fragment_animation,
+                R.anim.fade_in,
+                R.anim.slide_out
+            )
+            .replace(R.id.frame_id, homeTaskScreenFragment)
+            .commit()
+    }
 
 
 //    override fun getDate() {

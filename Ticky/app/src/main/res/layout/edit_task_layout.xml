@@ -1,6 +1,403 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/task_adding_layout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tralivali1231"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+
+        >
+        <ImageView
+
+            android:id="@+id/xoo1"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@string/todo"
+            app:layout_constraintBottom_toBottomOf="@+id/dateCalendar1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dateCalendar1"
+            app:layout_constraintTop_toTopOf="@+id/dateCalendar1"
+            app:srcCompat="@drawable/xoo" />
+
+        <TextView
+            android:id="@+id/back_to_tasks1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="51dp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:text="@string/back"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView31"
+            android:layout_width="13dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/asd"
+            app:layout_constraintBottom_toBottomOf="@+id/back_to_tasks1"
+            app:layout_constraintEnd_toStartOf="@+id/back_to_tasks1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/back_to_tasks1" />
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/dateCalendar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/calendar1"
+            app:layout_constraintEnd_toStartOf="@+id/calendar1"
+            app:layout_constraintTop_toTopOf="@+id/calendar1"
+            tools:text="traki" />
+
+        <TextView
+            android:id="@+id/textView61"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="296dp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:text="@string/stuff_to_do"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.076"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/back_to_tasks1" />
+
+        <TextView
+            android:id="@+id/calendar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/date_picker"
+            android:contentDescription="@string/todo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/Task_input1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:focusable="true"
+            android:fontFamily="@font/ubuntu_bold"
+            android:hint="@string/type_your_text_here"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLines="3"
+            android:textCursorDrawable="@drawable/sticky"
+            android:textSize="24sp"
+            android:transitionName="@string/sharedchars"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.03"
+            app:layout_constraintStart_toStartOf="@+id/textView61"
+            app:layout_constraintTop_toBottomOf="@+id/textView61">
+
+            <requestFocus />
+
+        </EditText>
+
+        <Button
+
+            android:id="@+id/oval11"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/round_button"
+            app:layout_constraintEnd_toStartOf="@+id/oval21"
+            app:layout_constraintStart_toStartOf="@+id/Task_input1"
+            app:layout_constraintTop_toBottomOf="@+id/Task_input1" />
+
+        <Button
+
+            android:id="@+id/oval21"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/round_button1"
+            app:layout_constraintEnd_toStartOf="@+id/oval31"
+            app:layout_constraintStart_toEndOf="@+id/oval11"
+            app:layout_constraintTop_toBottomOf="@+id/Task_input1" />
+
+        <Button
+
+            android:id="@+id/oval31"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/round_button2"
+            app:layout_constraintEnd_toStartOf="@+id/oval41"
+            app:layout_constraintStart_toEndOf="@+id/oval21"
+            app:layout_constraintTop_toBottomOf="@id/Task_input1" />
+
+        <Button
+
+            android:id="@+id/oval41"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/round_button3"
+            app:layout_constraintEnd_toStartOf="@+id/oval51"
+            app:layout_constraintStart_toEndOf="@+id/oval31"
+            app:layout_constraintTop_toBottomOf="@+id/Task_input1" />
+
+        <Button
+
+            android:id="@+id/oval51"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/round_button4"
+            app:layout_constraintEnd_toStartOf="@+id/oval61"
+            app:layout_constraintStart_toEndOf="@+id/oval41"
+            app:layout_constraintTop_toBottomOf="@+id/Task_input1" />
+
+        <Button
+
+            android:id="@+id/oval61"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/round_button6"
+            app:layout_constraintEnd_toStartOf="@+id/oval71"
+            app:layout_constraintStart_toEndOf="@+id/oval51"
+            app:layout_constraintTop_toBottomOf="@+id/Task_input1" />
+
+        <Button
+
+            android:id="@+id/oval71"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/round_button7"
+            app:layout_constraintEnd_toStartOf="@+id/oval81"
+            app:layout_constraintStart_toEndOf="@+id/oval61"
+            app:layout_constraintTop_toBottomOf="@+id/Task_input1" />
+
+        <Button
+
+            android:id="@+id/oval81"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/round_button8"
+            app:layout_constraintEnd_toStartOf="@+id/oval91"
+            app:layout_constraintStart_toEndOf="@+id/oval71"
+            app:layout_constraintTop_toBottomOf="@+id/Task_input1" />
+
+        <Button
+
+            android:id="@+id/oval91"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="33dp"
+            android:background="@drawable/round_button9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/oval81"
+            app:layout_constraintTop_toBottomOf="@+id/Task_input1" />
+
+        <Button
+            android:id="@+id/saveButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="45dp"
+            android:background="@drawable/onboarding_button"
+            android:clickable="false"
+            android:enabled="false"
+            android:fontFamily="@font/ubuntu_medium"
+            android:text="Save"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView41"
+            app:layout_constraintTop_toBottomOf="@+id/oval71" />
+
+        <TextView
+            android:id="@+id/textView41"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="45dp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:text="@string/cancel"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/saveButton1"
+            app:layout_constraintStart_toEndOf="@+id/cancel_selecting21"
+            app:layout_constraintTop_toBottomOf="@+id/oval21" />
+
+
+
+        <ImageView
+            android:id="@+id/cancel_selecting21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="3dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView41"
+            app:layout_constraintEnd_toStartOf="@+id/textView41"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView41"
+            app:srcCompat="@drawable/gone_taskk" />
+
+        <ImageView
+            android:id="@+id/circleBlue1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/oval61"
+            app:layout_constraintEnd_toEndOf="@+id/oval61"
+            app:layout_constraintStart_toStartOf="@+id/oval61"
+            app:layout_constraintTop_toTopOf="@+id/oval61"
+            app:srcCompat="@drawable/wrewiri" />
+
+        <ImageView
+            android:id="@+id/circleRed1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/oval11"
+            app:layout_constraintEnd_toEndOf="@+id/oval11"
+            app:layout_constraintStart_toStartOf="@+id/oval11"
+            app:layout_constraintTop_toTopOf="@+id/oval11"
+            app:srcCompat="@drawable/oval_red" />
+
+        <ImageView
+            android:id="@+id/circleOrange1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+
+            app:layout_constraintBottom_toBottomOf="@+id/oval21"
+            app:layout_constraintEnd_toEndOf="@+id/oval21"
+            app:layout_constraintStart_toStartOf="@+id/oval21"
+            app:layout_constraintTop_toTopOf="@+id/oval21"
+            app:srcCompat="@drawable/oval_orange" />
+
+        <ImageView
+            android:id="@+id/circleYellow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/oval31"
+            app:layout_constraintEnd_toEndOf="@+id/oval31"
+            app:layout_constraintStart_toStartOf="@+id/oval31"
+            app:layout_constraintTop_toTopOf="@+id/oval31"
+            app:srcCompat="@drawable/oval_yellow" />
+
+        <ImageView
+            android:id="@+id/circleGreen1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/oval41"
+            app:layout_constraintEnd_toEndOf="@+id/oval41"
+            app:layout_constraintStart_toStartOf="@+id/oval41"
+            app:layout_constraintTop_toTopOf="@+id/oval41"
+            app:srcCompat="@drawable/oval_green" />
+
+        <ImageView
+            android:id="@+id/lightBlue1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/oval51"
+            app:layout_constraintEnd_toEndOf="@+id/oval51"
+            app:layout_constraintStart_toStartOf="@+id/oval51"
+            app:layout_constraintTop_toTopOf="@+id/oval51"
+            app:srcCompat="@drawable/oval_lightblue" />
+
+        <ImageView
+            android:id="@+id/circleUcnobi1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/oval71"
+            app:layout_constraintEnd_toEndOf="@+id/oval71"
+            app:layout_constraintStart_toStartOf="@+id/oval71"
+            app:layout_constraintTop_toTopOf="@+id/oval71"
+            app:srcCompat="@drawable/oval_blue" />
+
+        <ImageView
+            android:id="@+id/circle_purple1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/oval81"
+            app:layout_constraintEnd_toEndOf="@+id/oval81"
+            app:layout_constraintStart_toStartOf="@+id/oval81"
+            app:layout_constraintTop_toTopOf="@+id/oval81"
+            app:srcCompat="@drawable/oval_purple" />
+
+        <ImageView
+            android:id="@+id/circleRose1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/oval91"
+            app:layout_constraintEnd_toEndOf="@+id/oval91"
+            app:layout_constraintStart_toStartOf="@+id/oval91"
+            app:layout_constraintTop_toTopOf="@+id/oval91"
+            app:srcCompat="@drawable/oval_rose" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

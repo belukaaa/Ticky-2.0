@@ -29,11 +29,14 @@ import com.raywenderlich.ticky.taskrecyclerview.SelectedTaskAdapter
 import com.raywenderlich.ticky.taskrecyclerview.TodoListAdapter
 import kotlinx.android.synthetic.main.home_task_screen.*
 import kotlinx.android.synthetic.main.home_task_screen.view.*
+import kotlinx.android.synthetic.main.todo_list_view_holder.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
 
-class HomeTaskScreenFragment: Fragment() , SelectedTaskAdapter.unSelectListener , TodoListAdapter.UpdateTask , SelectedTaskAdapter.updateTaskie   {
+class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() , SelectedTaskAdapter.unSelectListener , TodoListAdapter.UpdateTask , SelectedTaskAdapter.updateTaskie , TodoListAdapter.EditTask  {
+
+    var taskie : Taskie = Taskie(0,"title",sortingColor = 10)
 
     private var List = ArrayList<Taskie>()
     private var checkedList = ArrayList<Taskie>()
@@ -42,11 +45,12 @@ class HomeTaskScreenFragment: Fragment() , SelectedTaskAdapter.unSelectListener 
 
     private lateinit var selectedTaskRecyclerView: RecyclerView
     private lateinit var recyclerView: RecyclerView
-    var adapter: TodoListAdapter = TodoListAdapter(click = { list, itemView, position ->
+    var adapter: TodoListAdapter = TodoListAdapter(click = { list, itemView, position , state ->
         okey(
             list,
             itemView,
-            position
+            position,
+            state
         )
     }, updateTask = { task -> checkTask(task) })
     private lateinit var selectedAdapter: SelectedTaskAdapter
@@ -58,6 +62,12 @@ class HomeTaskScreenFragment: Fragment() , SelectedTaskAdapter.unSelectListener 
     private lateinit var mySharedPref : MySharedPreference
     private lateinit var viewHolder: TodoListAdapter.TodoListViewHolder
 
+//    companion object {
+//        fun getHomeTaskScrenFragment():HomeTaskScreenFragment {
+//            return  HomeTaskScreenFragment(EditTask = {task -> editTask(task) } )
+//        }
+//
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -107,6 +117,7 @@ class HomeTaskScreenFragment: Fragment() , SelectedTaskAdapter.unSelectListener 
         selectedAdapter = SelectedTaskAdapter()
         selectedAdapter.setOnCheckListener(this)
         selectedAdapter.setOnUpdateListener(this)
+        adapter.editTask(this)
 
         selectedTaskRecyclerView = view.checked_recycler
         selectedTaskRecyclerView.adapter = selectedAdapter
@@ -189,11 +200,11 @@ class HomeTaskScreenFragment: Fragment() , SelectedTaskAdapter.unSelectListener 
         mTaskViewModel = ViewModelProviders.of(this, factory).get(TaskViewModel::class.java)
         mySharedPref = MySharedPreference(context)
     }
-    companion object {
-        fun getHomeTaskScrenFragment():HomeTaskScreenFragment {
-            return  HomeTaskScreenFragment()
-        }
-    }
+//    companion object {
+//        fun getHomeTaskScrenFragment():HomeTaskScreenFragment {
+//            return  HomeTaskScreenFragment(EditTask = )
+//        }
+//    }
     private fun setDatee(){
         val c = Calendar.getInstance()
         val month = c.get(Calendar.MONTH)
@@ -711,7 +722,7 @@ class HomeTaskScreenFragment: Fragment() , SelectedTaskAdapter.unSelectListener 
     }
 
 
-    private fun okey(list: List<Taskie>, itemView: ArrayList<View>, position: ArrayList<Int>){
+    private fun okey(list: List<Taskie>, itemView: ArrayList<View>, position: ArrayList<Int>, state : Int){
         this.List = list as ArrayList<Taskie>
 
         done_button.setOnClickListener {
@@ -722,6 +733,8 @@ class HomeTaskScreenFragment: Fragment() , SelectedTaskAdapter.unSelectListener 
                 mTaskViewModel.updateTask(task)
 
             }
+            adapter.state = 0
+            adapter.notifyDataSetChanged()
             List.clear()
             hideDeleteDonebttns()
         }
@@ -731,7 +744,7 @@ class HomeTaskScreenFragment: Fragment() , SelectedTaskAdapter.unSelectListener 
                it.checked = false
            }
 
-
+            adapter.state = 0
             position.clear()
             itemView.clear()
             list.clear()
@@ -786,7 +799,7 @@ class HomeTaskScreenFragment: Fragment() , SelectedTaskAdapter.unSelectListener 
 
                     Log.e("Delete" , "$list $List")
 
-
+                    adapter.state = 0
 
 
 
@@ -804,8 +817,10 @@ class HomeTaskScreenFragment: Fragment() , SelectedTaskAdapter.unSelectListener 
 
         }
 
-        if (List.isEmpty()){
+        if (list.isEmpty()){
             hideDeleteDonebttns()
+            adapter.state = 0
+            adapter.notifyDataSetChanged()
 
         }else if (selected_item_funcs.isVisible){
 
@@ -925,7 +940,15 @@ class HomeTaskScreenFragment: Fragment() , SelectedTaskAdapter.unSelectListener 
         hideDeleteDonebttns()
     }
 
+    override fun editTask(task: Taskie) {
 
+        taskie = task
+
+        EditTask.invoke(task)
+
+       // Log.e("TaskForEditing" , "task is - ${task.title} , ${task.color} , ${task.dateLong}")
+
+    }
 
 
 }

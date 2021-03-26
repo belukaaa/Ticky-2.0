@@ -5,15 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.Toast
+import androidx.core.os.HandlerCompat.postDelayed
 import androidx.recyclerview.widget.RecyclerView
 import com.raywenderlich.ticky.R
 import com.raywenderlich.ticky.Taskie
 import kotlinx.android.synthetic.main.todo_list_view_holder.view.*
+import java.util.logging.Handler
 
 
-class TodoListAdapter (val click : (list : List<Taskie> , itemView: ArrayList<View> , position : ArrayList<Int>) -> Unit
+class TodoListAdapter (var click : (list : List<Taskie> , itemView: ArrayList<View> , position : ArrayList<Int> , state : Int) -> Unit
                        ,val updateTask: (task: Taskie) -> Unit) : RecyclerView.Adapter<TodoListAdapter.TodoListViewHolder> () {
-    
+    private var firstSelectedItem = ArrayList<Taskie>()
+//    private lateinit var firstSelectedItemView : View
     private var TaskieView = ArrayList<View>()
     private var uncheckedTaskieView = ArrayList<View>()
     private var taskListPosition = ArrayList<Int>()
@@ -21,37 +25,83 @@ class TodoListAdapter (val click : (list : List<Taskie> , itemView: ArrayList<Vi
     private var taskList1 = ArrayList<Taskie>()
     private var taskList = ArrayList<Taskie>()
     private var checkedTaskList = ArrayList<Taskie>()
+    private var evenOneTaskSelected = false
+    var state = 0
+    private var state1 = 1
+    private var state2 = 2
 
     inner class TodoListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)  {
 
+        fun editTask(task: Taskie) {
+            if (state == 0) {
+                itemView.setOnClickListener {
+                    listenerEditText?.editTask(task)
+                }
+            }
+            else if(state == state1){
+
+            }
+        }
         fun setData(task: Taskie , holder: TodoListViewHolder , position: Int) {
-            itemView.setOnLongClickListener {
-                if (!task.checked) {
-                    task.checked = true
-                    itemView.linearLayout.setBackgroundResource(R.drawable.selected_item)
-                    itemView.checkBox.setButtonDrawable(R.drawable.ic_rectangle_completed)
-                    taskList1.add(task)
-                    TaskieView.add(itemView)
-                    taskListPosition.add(adapterPosition)
-//                    listener?.onChecked(taskList1 , TaskieView)
-                    click.invoke(taskList1 , TaskieView , taskListPosition)
+            if (state == 0) {
 
-                } else {
+                itemView.setOnLongClickListener {
+                    state = 1
+                    notifyDataSetChanged()
 
-                    task.checked = false
-                    holder.itemView.checkBox.isChecked = false
-                    itemView.linearLayout.setBackgroundResource(R.drawable.viewholder_background)
-                    itemView.checkBox.setButtonDrawable(R.drawable.unselected_task_checkbox)
-                    taskList1.remove(task)
-                    TaskieView.remove(itemView)
-                    taskListPosition.remove(adapterPosition)
-                    click.invoke(taskList1 , TaskieView , taskListPosition)
-//                    listener?.onChecked(taskList1, TaskieView )
-                }
+//                        Toast.makeText(
+//                            itemView.context,
+//                            "SELECTING MODE ACTIVATED",
+//                            Toast.LENGTH_SHORT
+//                        ).show()
+//                        task.checked = true
+//                        itemView.linearLayout.setBackgroundResource(R.drawable.selected_item)
+//                        itemView.checkBox.setButtonDrawable(R.drawable.ic_rectangle_completed)
+//                        taskList1.add(task)
+//                        TaskieView.add(itemView)
+//                        taskListPosition.add(adapterPosition)
+//                        Log.e("lists" , "tasklist -> ${taskList1.size} , itemView -> ${TaskieView.size} , position -> ${taskListPosition.size}")
+//                        click.invoke(taskList1, TaskieView, taskListPosition , state)
+
+
+//                    } else {
+//                        task.checked = false
+//                        holder.itemView.checkBox.isChecked = false
+//                        itemView.linearLayout.setBackgroundResource(R.drawable.viewholder_background)
+//                        itemView.checkBox.setButtonDrawable(R.drawable.unselected_task_checkbox)
+//                        taskList1.remove(task)
+//                        TaskieView.remove(itemView)
+//                        taskListPosition.remove(adapterPosition)
+//                        click.invoke(taskList1, TaskieView, taskListPosition , state)
+//                    }
+
+
                     true
+
                 }
+            } else if (state == state1) {
+                itemView.setOnClickListener {
+                    if (!task.checked) {
+                        task.checked = true
+                        itemView.linearLayout.setBackgroundResource(R.drawable.selected_item)
+                        itemView.checkBox.setButtonDrawable(R.drawable.ic_rectangle_completed)
+                        taskList1.add(task)
+                        TaskieView.add(itemView)
+                        taskListPosition.add(adapterPosition)
+//                    listener?.onChecked(taskList1 , TaskieView)
+                        click.invoke(taskList1, TaskieView, taskListPosition , state)
+                    } else {
+                        task.checked = false
+                        holder.itemView.checkBox.isChecked = false
+                        itemView.linearLayout.setBackgroundResource(R.drawable.viewholder_background)
+                        itemView.checkBox.setButtonDrawable(R.drawable.unselected_task_checkbox)
+                        taskList1.remove(task)
+                        TaskieView.remove(itemView)
+                        taskListPosition.remove(adapterPosition)
+                        click.invoke(taskList1, TaskieView, taskListPosition , state)
+                    }
 
-
+                }
 //            itemView.checkBox.setOnClickListener {
 ////
 ////                checkedTaskList.add(task)
@@ -63,6 +113,7 @@ class TodoListAdapter (val click : (list : List<Taskie> , itemView: ArrayList<Vi
 //
 //            }
             }
+        }
 
         fun checkTask(task: Taskie ){
             itemView.checkBox.setOnClickListener {
@@ -91,6 +142,8 @@ class TodoListAdapter (val click : (list : List<Taskie> , itemView: ArrayList<Vi
     }
     override fun onBindViewHolder(holder: TodoListViewHolder, position: Int) {
 
+
+
         taskList1.clear()
 
         val currentItem = (taskList[position])
@@ -101,9 +154,13 @@ class TodoListAdapter (val click : (list : List<Taskie> , itemView: ArrayList<Vi
 
         holder.itemView.checkBox.setButtonDrawable(R.drawable.unselected_task_checkbox)
 
+
+        holder.editTask(taskList[position])
+
+
+
         holder.itemView.checkBox.isChecked = false
         holder.setData(currentItem , holder , position)
-
         holder.itemView.task.text = currentItem.title
 
         if (currentItem.color == "#ff453a") {
@@ -163,6 +220,14 @@ class TodoListAdapter (val click : (list : List<Taskie> , itemView: ArrayList<Vi
 
     var listener22 : UpdateAllTasks? = null
     var listener2 : UpdateTask? = null
+    var listenerEditText : EditTask? = null
+
+    interface EditTask {
+        fun editTask(task: Taskie)
+    }
+    fun editTask(listenerEditTask: EditTask){
+        this.listenerEditText = listenerEditTask
+    }
 
     interface UpdateAllTasks {
         fun updateAllTasks(itemView: View)
