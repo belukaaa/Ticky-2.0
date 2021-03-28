@@ -817,7 +817,7 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
 
         }
 
-        if (list.isEmpty()){
+        if (position.isEmpty()){
             hideDeleteDonebttns()
             adapter.state = 0
             adapter.notifyDataSetChanged()
