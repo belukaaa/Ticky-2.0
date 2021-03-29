@@ -21,11 +21,11 @@ class TodoListAdapter (var click : (list : List<Taskie> , itemView: ArrayList<Vi
                        ,val updateTask: (task: Taskie) -> Unit) : RecyclerView.Adapter<TodoListAdapter.TodoListViewHolder> () {
     private var firstSelectedItem = ArrayList<Taskie>()
 //    private lateinit var firstSelectedItemView : View
-    private var TaskieView = ArrayList<View>()
+    var TaskieView = ArrayList<View>()
     private var uncheckedTaskieView = ArrayList<View>()
-    private var taskListPosition = ArrayList<Int>()
+    var taskListPosition = ArrayList<Int>()
     private var taskListPosition1 = ArrayList<Int>()
-    private var taskList1 = ArrayList<Taskie>()
+    var taskList1 = ArrayList<Taskie>()
     private var taskList = ArrayList<Taskie>()
     private var checkedTaskList = ArrayList<Taskie>()
     private var evenOneTaskSelected = false
@@ -62,15 +62,7 @@ class TodoListAdapter (var click : (list : List<Taskie> , itemView: ArrayList<Vi
                         state = 1
                         notifyDataSetChanged()
                     }
-                    else
-                    {
-                        task.checked = false
-                        taskList1.remove(task)
-                        TaskieView.remove(itemView)
-                        taskListPosition.remove(adapterPosition)
-                        click.invoke(taskList1, TaskieView, taskListPosition , state)
-                        notifyDataSetChanged()
-                    }
+
 //                        Toast.makeText(
 //                            itemView.context,
 //                            "SELECTING MODE ACTIVATED",
@@ -109,7 +101,6 @@ class TodoListAdapter (var click : (list : List<Taskie> , itemView: ArrayList<Vi
                 itemView.setOnClickListener {
                     if (!task.checked) {
                         task.checked = true
-
                         taskList1.add(task)
                         TaskieView.add(itemView)
                         taskListPosition.add(adapterPosition)
@@ -118,7 +109,6 @@ class TodoListAdapter (var click : (list : List<Taskie> , itemView: ArrayList<Vi
                     } else {
                         task.checked = false
                         holder.itemView.checkBox.isChecked = false
-
                         taskList1.remove(task)
                         TaskieView.remove(itemView)
                         taskListPosition.remove(adapterPosition)
@@ -142,9 +132,13 @@ class TodoListAdapter (var click : (list : List<Taskie> , itemView: ArrayList<Vi
 
         fun checkTask(task: Taskie ){
             itemView.checkBox.setOnClickListener {
-
+                task.checked = false
                 task.selected = true
+                taskListPosition.clear()
+                TaskieView.clear()
+                taskList1.clear()
                 updateTask.invoke(task)
+                state = 0
 
 //                listener2?.updateTask(task , itemView)
 
@@ -166,7 +160,6 @@ class TodoListAdapter (var click : (list : List<Taskie> , itemView: ArrayList<Vi
 
     }
     override fun onBindViewHolder(holder: TodoListViewHolder, position: Int) {
-        taskList1.clear()
 
         val currentItem = (taskList[position])
 

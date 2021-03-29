@@ -8,6 +8,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.get
@@ -129,16 +130,45 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
         recyclerView.layoutManager = LinearLayoutManager(context)
 
 
+        val sortItems = mySharedPref.taskExe()
 
-        mTaskViewModel.getSelectedData().observe(viewLifecycleOwner, Observer { user ->
-            adapter.setData(user)
-        })
+        if (sortItems == "")  {
+            mTaskViewModel.getSelectedData().observe(viewLifecycleOwner, Observer { user ->
+                adapter.setData(user)
+            })
+            view.textView5.text = R.string.sort_by.toString()
+        }
+        else if (sortItems == "Due date") {
+            mTaskViewModel.getTasksByDate().observe(viewLifecycleOwner, Observer {
+              adapter.setData(it)
+            })
+           view.textView5.text = sortItems
+
+
+        }
+        else if (sortItems == "Color label") {
+            mTaskViewModel.sortTasksByColor().observe(viewLifecycleOwner, Observer {
+                adapter.setData(it)
+            })
+            view.textView5.text = sortItems
+        }
+        else if (sortItems == "Date added") {
+            mTaskViewModel.getSelectedData().observe(viewLifecycleOwner, Observer {
+                adapter.setData(it)
+            })
+           view.textView5.text = sortItems
+        }
+
         mTaskViewModel.getUnSelectedData().observe(viewLifecycleOwner, Observer { user ->
             selectedAdapter.setSelectedData(user)
         })
 
 
         add_task.setOnClickListener {
+            adapter.state = 0
+            adapter.taskList1.clear()
+            adapter.taskListPosition.clear()
+            adapter.TaskieView.clear()
             listener?.homeTaskScrenButton()
         }
 
@@ -172,7 +202,7 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
 //            hideDeleteDonebttns()
 //        }
         view.textView5.setOnClickListener {
-            var data = showDialog()
+            showDialog()
         }
         setSortingName()
     }
@@ -733,15 +763,18 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
                 mTaskViewModel.updateTask(task)
 
             }
+            list.clear()
+            itemView.clear()
+            position.clear()
             adapter.state = 0
             adapter.notifyDataSetChanged()
-            List.clear()
             hideDeleteDonebttns()
         }
 
         cancel_selecting.setOnClickListener {
            list.forEach {
                it.checked = false
+
            }
 
             adapter.state = 0
@@ -756,9 +789,24 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
 
         delete_task_button.setOnClickListener {
             val anim = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_out)
-            itemView.forEach { v ->
-                v.startAnimation(anim)
+//            itemView.forEach { v ->
+//                v.startAnimation(anim)
+//            }
+            list.forEach { task ->
+
+                task.checked = false
+
             }
+
+            mTaskViewModel.deleteUser(list)
+
+//                    unchecked.forEach {
+//                        it.startAnimation(anim2)
+//                    }
+
+            Log.e("Delete" , "$list $List")
+            position.clear()
+            adapter.state = 0
 
             hideDeleteDonebttns()
 
@@ -782,25 +830,22 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
                 }
 
                 override fun onAnimationEnd(animation: Animation?) {
-                    list.forEach { task ->
 
-                        task.checked = false
-
-                    }
-
-                    itemView.forEach { v ->
-                        v.alpha = 0F
-                    }
-                    mTaskViewModel.deleteUser(list)
-
-//                    unchecked.forEach {
-//                        it.startAnimation(anim2)
-//                    }
-
-                    Log.e("Delete" , "$list $List")
-
-                    adapter.state = 0
-
+//                    list.forEach { task ->
+//
+//                task.checked = false
+//
+//            }
+//
+//            mTaskViewModel.deleteUser(list)
+//
+////                    unchecked.forEach {
+////                        it.startAnimation(anim2)
+////                    }
+//
+//            Log.e("Delete" , "$list $List")
+//            position.clear()
+//            adapter.state = 0
 
 
                 }
