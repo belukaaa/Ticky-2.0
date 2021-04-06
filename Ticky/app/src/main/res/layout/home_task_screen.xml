@@ -31,7 +31,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/vnaxotraiqneba11"
             android:layout_width="0dp"
-            android:layout_height="205dp"
+            android:layout_height="@dimen/calendar_size"
             android:background="@drawable/vnaxot_ra_gamova"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -442,7 +442,7 @@
             android:id="@+id/delete_task_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/delete_task_button2"
+            android:background="@drawable/done_button"
             android:drawableStart="@drawable/delete_task"
             android:drawablePadding="3dp"
             android:paddingStart="30dp"
@@ -457,11 +457,12 @@
         <Button
             android:layout_marginBottom="24dp"
             android:id="@+id/cancel_selecting"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
             android:background="@drawable/round_button_cancel_selecting"
             android:drawableStart="@drawable/ic_baseline_close_24"
+            android:drawablePadding="9dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

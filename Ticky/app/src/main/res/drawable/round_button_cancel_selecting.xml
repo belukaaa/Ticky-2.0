@@ -3,7 +3,13 @@
 
 <solid android:color="@android:color/white" />
 
-<padding android:right="9dp" android:left="9dp" android:top="9dp" android:bottom="9dp" />
+<!--    <padding android:top="20dp" android:right="20dp" android:left="20dp" android:bottom="20dp"/>-->
+
+
+    <padding android:right="9dp" android:left="10dp" android:top="9dp" android:bottom="9dp" />
+
+
+
 
 
 </shape>

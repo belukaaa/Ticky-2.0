@@ -15,6 +15,7 @@ import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
+import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
@@ -62,6 +63,14 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
     private lateinit var taskDB: TaskieDatabase
     private lateinit var repository: TaskieRepository
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+        getActivity()?.getWindow()?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
+//        WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE
+//        WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -628,7 +637,7 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
             val task = Taskie(0, title, color, datetime, checked, selected, dateLong, sortingColor)
             mTaskViewModel.addTask(task)
             setToDefs()
-            Toast.makeText(requireContext(), " ADDED", Toast.LENGTH_LONG).show()
+           
 
         }
     }

@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+     android:layout_width="match_parent"
+    android:layout_alignParentBottom="true"
+    android:fitsSystemWindows="true"
+    >
+<androidx.core.widget.NestedScrollView
     android:id="@+id/task_adding_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:isScrollContainer="true"
+    app:layout_constraintBottom_toBottomOf="@id/olalaaa"
+    >
 
 
 
@@ -45,8 +55,8 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="13dp"
-            android:layout_height="21dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginEnd="10dp"
             android:contentDescription="@string/todo"
@@ -235,6 +245,7 @@
             app:layout_constraintTop_toBottomOf="@+id/Task_input" />
 
         <Button
+
             android:id="@+id/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -254,17 +265,18 @@
             app:layout_constraintTop_toBottomOf="@+id/oval7" />
 
         <TextView
+
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
+            android:layout_marginStart="65dp"
             android:layout_marginTop="52dp"
             android:layout_marginEnd="45dp"
             android:fontFamily="@font/ubuntu_medium"
             android:text="@string/cancel"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/saveButton"
-            app:layout_constraintStart_toEndOf="@+id/cancel_selecting2"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/oval2" />
 
         <TextView
@@ -285,12 +297,10 @@
             android:id="@+id/cancel_selecting2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="3dp"
             app:layout_constraintBottom_toBottomOf="@+id/textView4"
             app:layout_constraintEnd_toStartOf="@+id/textView4"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView4"
             app:srcCompat="@drawable/gone_taskk" />
 
@@ -396,3 +406,17 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/olalaaa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="vertical"
+        android:gravity="end"
+        android:layout_alignParentBottom="true"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

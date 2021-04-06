@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.ListView
 import android.widget.Toast
 import androidx.core.os.HandlerCompat.postDelayed
 import androidx.recyclerview.widget.RecyclerView
@@ -18,10 +19,11 @@ import java.util.logging.Handler as Handler1
 
 
 class TodoListAdapter (var click : (list : List<Taskie> , itemView: ArrayList<View> , position : ArrayList<Int> , state : Int) -> Unit
-                       ,val updateTask: (task: Taskie) -> Unit) : RecyclerView.Adapter<TodoListAdapter.TodoListViewHolder> () {
+                       ,val updateTask: (task: Taskie) -> Unit ) : RecyclerView.Adapter<TodoListAdapter.TodoListViewHolder> () {
     private var firstSelectedItem = ArrayList<Taskie>()
 //    private lateinit var firstSelectedItemView : View
     var TaskieView = ArrayList<View>()
+    var taskieView = mutableListOf<View>()
     private var uncheckedTaskieView = ArrayList<View>()
     var taskListPosition = ArrayList<Int>()
     private var taskListPosition1 = ArrayList<Int>()
@@ -53,14 +55,15 @@ class TodoListAdapter (var click : (list : List<Taskie> , itemView: ArrayList<Vi
                         task.checked = true
                         taskList1.add(task)
                         TaskieView.add(itemView)
+                        taskieView.add(itemView)
+                        Log.e("taskviews" , "${taskListPosition.size} ${TaskieView.size}, $TaskieView , ${taskieView.size} , $taskieView")
                         taskListPosition.add(adapterPosition)
-                        Log.e(
-                            "lists",
-                            "tasklist -> ${taskList1.size} , itemView -> ${TaskieView.size} , position -> ${taskListPosition.size}"
-                        )
+
                         click.invoke(taskList1, TaskieView, taskListPosition, state)
                         state = 1
                         notifyDataSetChanged()
+                        Log.e("taskviews" , "${taskListPosition.size} ${TaskieView.size}, $TaskieView , ${taskieView.size} , $taskieView")
+
                     }
 
 //                        Toast.makeText(
@@ -103,17 +106,28 @@ class TodoListAdapter (var click : (list : List<Taskie> , itemView: ArrayList<Vi
                         task.checked = true
                         taskList1.add(task)
                         TaskieView.add(itemView)
+                        taskieView.add(itemView)
+                        Log.e("taskviews" , "${taskListPosition.size} ${TaskieView.size}, $TaskieView , ${taskieView.size} , $taskieView")
+
                         taskListPosition.add(adapterPosition)
+
                         click.invoke(taskList1, TaskieView, taskListPosition , state)
                         notifyDataSetChanged()
+                        Log.e("taskviews" , "${taskListPosition.size} ${TaskieView.size}, $TaskieView , ${taskieView.size} , $taskieView")
+
                     } else {
                         task.checked = false
                         holder.itemView.checkBox.isChecked = false
                         taskList1.remove(task)
                         TaskieView.remove(itemView)
+                        taskieView.remove(itemView)
+                        Log.e("taskviews" , "${taskListPosition.size} ${TaskieView.size}, $TaskieView , ${taskieView.size} , $taskieView")
+
                         taskListPosition.remove(adapterPosition)
                         click.invoke(taskList1, TaskieView, taskListPosition , state)
                         notifyDataSetChanged()
+                        Log.e("taskviews" , "${taskListPosition.size} ${TaskieView.size}, $TaskieView , ${taskieView.size} , $taskieView")
+
                     }
 
                 }
@@ -280,7 +294,7 @@ class TodoListAdapter (var click : (list : List<Taskie> , itemView: ArrayList<Vi
     }
 
     interface deleteUserByAnim {
-        fun deleteUserByAnim(task: Taskie, returnView: View)
+        fun deleteUserByAnim(task: Taskie)
     }
 
     var listener1 : Iunselect? = null

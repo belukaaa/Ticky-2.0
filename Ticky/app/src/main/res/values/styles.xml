@@ -32,8 +32,14 @@
 
     </style>
 
-    <style name="DialogAnimation">
+    <style name="DialogLayoutWidth">
+        <item name="android:layout_width">match_parent</item>
 
+
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:layout_width">match_parent</item>
 
         <item name="android:windowEnterAnimation">@anim/slide_in_up</item>
         <item name="android:windowExitAnimation">@anim/slide_out_down</item>

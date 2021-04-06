@@ -1,5 +1,6 @@
 package com.raywenderlich.ticky.fragments
 
+import android.app.ActionBar
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -130,13 +131,14 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
         recyclerView.layoutManager = LinearLayoutManager(context)
 
 
+
         val sortItems = mySharedPref.taskExe()
 
         if (sortItems == "")  {
             mTaskViewModel.getSelectedData().observe(viewLifecycleOwner, Observer { user ->
                 adapter.setData(user)
             })
-            view.textView5.text = R.string.sort_by.toString()
+           view.textView5.text = "sort by"
         }
         else if (sortItems == "Due date") {
             mTaskViewModel.getTasksByDate().observe(viewLifecycleOwner, Observer {
@@ -218,9 +220,17 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
 
 
     private fun showDialog(){
+
+
         val dialog = CustomDialogFragment()
 
+
+
+
         dialog.show(childFragmentManager, "CustomDialog")
+
+
+
     }
     private fun initViewModel(context: Context) {
         taskDB = TaskieDatabase.getDatabase(context)
@@ -754,14 +764,12 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
 
     private fun okey(list: List<Taskie>, itemView: ArrayList<View>, position: ArrayList<Int>, state : Int){
         this.List = list as ArrayList<Taskie>
-
+        var arrayOfItemViews   = ArrayList<View>()
         done_button.setOnClickListener {
             List.forEach { task ->
                 task.selected = true
                 task.checked = false
-
                 mTaskViewModel.updateTask(task)
-
             }
             list.clear()
             itemView.clear()
@@ -769,14 +777,20 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
             adapter.state = 0
             adapter.notifyDataSetChanged()
             hideDeleteDonebttns()
+        }
+
+        position.forEach {
+            val view = recyclerView.findViewHolderForAdapterPosition(it)
+            val itemView = view?.itemView
+
+            arrayOfItemViews.add(itemView!!)
+
         }
 
         cancel_selecting.setOnClickListener {
            list.forEach {
                it.checked = false
-
            }
-
             adapter.state = 0
             position.clear()
             itemView.clear()
@@ -784,86 +798,56 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
             adapter.notifyDataSetChanged()
             hideDeleteDonebttns()
         }
-
-
-
         delete_task_button.setOnClickListener {
-            val anim = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_out)
-//            itemView.forEach { v ->
-//                v.startAnimation(anim)
-//            }
-            list.forEach { task ->
+            position.forEach {
+                val view = recyclerView.findViewHolderForAdapterPosition(it)
+                val itemView = view?.itemView
 
-                task.checked = false
+                arrayOfItemViews.add(itemView!!)
 
             }
 
-            mTaskViewModel.deleteUser(list)
-
-//                    unchecked.forEach {
-//                        it.startAnimation(anim2)
-//                    }
-
-            Log.e("Delete" , "$list $List")
-            position.clear()
-            adapter.state = 0
-
-            hideDeleteDonebttns()
-
-            anim.setAnimationListener(object : Animation.AnimationListener {
-                override fun onAnimationStart(animation: Animation?) {
-
-
-
-
-//                        if (itemView[0] == recyclerView[0]) {
-//                            unchecked.forEach { v ->
-//                                v.startAnimation(anim2)
-//                               imageView6.startAnimation(anim3)
-//                                textView8.startAnimation(anim4)
-//
-//                            }
-//
-//
-//                        }
-
-                }
-
-                override fun onAnimationEnd(animation: Animation?) {
-
-//                    list.forEach { task ->
-//
+            val anim = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_out)
+            arrayOfItemViews.forEach { v ->
+                v.startAnimation(anim)
+            }
+//            list.forEach { task ->
 //                task.checked = false
-//
 //            }
-//
 //            mTaskViewModel.deleteUser(list)
-//
-////                    unchecked.forEach {
-////                        it.startAnimation(anim2)
-////                    }
-//
 //            Log.e("Delete" , "$list $List")
 //            position.clear()
 //            adapter.state = 0
-
-
+//            hideDeleteDonebttns()
+            anim.setAnimationListener(object : Animation.AnimationListener {
+                override fun onAnimationStart(animation: Animation?) {
+              }
+                override fun onAnimationEnd(animation: Animation?) {
+                    list.forEach { task ->
+                        task.checked = false
+                    }
+                    arrayOfItemViews.forEach {
+                        it.alpha = 0F
+                    }
+                    mTaskViewModel.deleteUser(list)
+                    Log.e("Delete" , "$list $List")
+                    position.clear()
+                    arrayOfItemViews.clear()
+                    adapter.state = 0
+                    hideDeleteDonebttns()
                 }
-
                 override fun onAnimationRepeat(animation: Animation?) {
 
                 }
 
             })
 
-
-
-            Log.e("Delete2 " , "$list $List")
-
         }
 
         if (position.isEmpty()){
             hideDeleteDonebttns()
+            adapter.taskieView.clear()
+            adapter.TaskieView.clear()
             adapter.state = 0
             adapter.notifyDataSetChanged()
 

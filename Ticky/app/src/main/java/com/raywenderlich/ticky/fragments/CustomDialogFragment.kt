@@ -1,5 +1,6 @@
 package com.raywenderlich.ticky.fragments
 
+import android.app.ActionBar
 import android.content.Context
 import android.os.Bundle
 import android.view.Gravity
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import com.raywenderlich.ticky.MySharedPreference
 import com.raywenderlich.ticky.R
 import kotlinx.android.synthetic.main.dialog_fragment.*
@@ -26,6 +28,8 @@ class CustomDialogFragment : DialogFragment() {
         val rootView: View = inflater.inflate(R.layout.dialog_fragment , container , false )
 
        dialog?.window?.setGravity(Gravity.BOTTOM)
+
+
 
         dialog?.window?.attributes?.windowAnimations = R.style.DialogAnimation
 
@@ -75,6 +79,19 @@ class CustomDialogFragment : DialogFragment() {
 
         return rootView
     }
+
+    override fun onStart() {
+        super.onStart()
+
+        val dialog = dialog
+        if (dialog != null) {
+            val width = ViewGroup.LayoutParams.MATCH_PARENT
+            val height = ViewGroup.LayoutParams.WRAP_CONTENT
+            dialog.window?.setLayout(width , height)
+        }
+
+    }
+
 
 
     private var listener : DialogSorting? =null
