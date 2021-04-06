@@ -637,7 +637,7 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
             val task = Taskie(0, title, color, datetime, checked, selected, dateLong, sortingColor)
             mTaskViewModel.addTask(task)
             setToDefs()
-           
+
 
         }
     }
