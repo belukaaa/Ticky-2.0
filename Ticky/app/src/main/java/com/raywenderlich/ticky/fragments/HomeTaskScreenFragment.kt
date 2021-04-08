@@ -36,7 +36,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() , SelectedTaskAdapter.unSelectListener , TodoListAdapter.UpdateTask , SelectedTaskAdapter.updateTaskie , TodoListAdapter.EditTask  {
+class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit , val softKeyboardController : () -> Unit): Fragment() , SelectedTaskAdapter.unSelectListener , TodoListAdapter.UpdateTask , SelectedTaskAdapter.updateTaskie , TodoListAdapter.EditTask  {
 
     var taskie : Taskie = Taskie(0,"title",sortingColor = 10)
 
@@ -207,6 +207,11 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
             showDialog()
         }
         setSortingName()
+
+        view.sunday1.setOnClickListener {
+            softKeyboardController.invoke()
+        }
+
     }
 
 

@@ -6,24 +6,12 @@
     android:layout_height="match_parent"
      android:layout_width="match_parent"
     android:layout_alignParentBottom="true"
-    android:fitsSystemWindows="true"
     >
-<androidx.core.widget.NestedScrollView
-    android:id="@+id/task_adding_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:isScrollContainer="true"
-    app:layout_constraintBottom_toBottomOf="@id/olalaaa"
-    >
-
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/tralivali123"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
 
         >
         <ImageView
@@ -405,18 +393,5 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.core.widget.NestedScrollView>
 
-    <RelativeLayout
-        android:id="@+id/olalaaa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:orientation="vertical"
-        android:gravity="end"
-        android:layout_alignParentBottom="true"
-        />
 </androidx.constraintlayout.widget.ConstraintLayout>

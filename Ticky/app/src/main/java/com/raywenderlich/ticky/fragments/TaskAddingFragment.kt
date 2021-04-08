@@ -1,6 +1,5 @@
 package com.raywenderlich.ticky.fragments
 
-import android.animation.ObjectAnimator
 import android.app.DatePickerDialog
 import android.content.Context
 import android.graphics.Color
@@ -20,7 +19,6 @@ import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -66,8 +64,7 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
-        getActivity()?.getWindow()?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
+
 //        WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE
 //        WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
     }
@@ -116,8 +113,16 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
         val itemImageView = view.Task_input
         ViewCompat.setTransitionName(itemImageView, "item_image")
 
+//        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN or WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
+
+
         val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.showSoftInput(view.Task_input, InputMethodManager.SHOW_IMPLICIT)
+
+//        view.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN or WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
+
+
+
         val btt1 = AnimationUtils.loadAnimation(context, R.anim.btt2)
 
         val oval1 = oval1 as Button
@@ -206,7 +211,7 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
 
        // checkKeyboardHeight(task_adding_layout)
        // setKeyboardHeight(task_adding_layout)
-       changeKeyboardHeight(view)
+//       changeKeyboardHeight(view)
 
     }
 
@@ -246,8 +251,8 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
                 Log.w("Foo", String.format("keyboard height: %d", currentKeyboardHeight))
                 if (currentKeyboardHeight > 100) {
 
-                    view.textView4.setPadding(0,0,0,currentKeyboardHeight)
-                    view.cancel_selecting2.setPadding(0,0,0,currentKeyboardHeight)
+                    view.textView4.setPadding(0, 0, 0, currentKeyboardHeight)
+                    view.cancel_selecting2.setPadding(0, 0, 0, currentKeyboardHeight)
 
                 } else {
                     view.textView4.setPadding(0, 0, 0, 0)
@@ -262,31 +267,7 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
     }
 
 
-     private fun setKeyboardHeight(view: View)  {
-         var result : Int? = 0
-         view.viewTreeObserver.addOnGlobalLayoutListener(OnGlobalLayoutListener {
-             val height = task_adding_layout?.height
-             //   Log.w("Foo", String.format("layout height: %d", height))
-             val r = Rect()
-             task_adding_layout?.getWindowVisibleDisplayFrame(r)
-             val visible = r.bottom - r.top
-             //   Log.w("Foo", String.format("visible height: %d", visible))
-             Log.w("Foo", String.format("keyboard height: %d", height?.minus(visible)))
-             result = height?.minus(visible)
-            // val animator = ObjectAnimator.ofFloat(view.saveButton, View.TRANSLATION_Y,0f, -200f)
-           //  animator.duration = 5000
-           //  animator.start()
 
-             //result = height - visible
-             //     Log.w("Foo", String.format("RESULT: %d",))
-
-         })
-         Log.w("Foo", "here is da $KEYOBIARD_HEIGHT")
-
-
-
-
-    }
 
     private fun setToDefs(){
         TASK_COLOR = ""

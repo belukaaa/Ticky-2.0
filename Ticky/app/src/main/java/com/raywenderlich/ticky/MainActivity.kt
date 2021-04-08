@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.raywenderlich.resizekeyboardwhenitsappears.BlankFragment
 import com.raywenderlich.ticky.db.TaskieDatabase
 import com.raywenderlich.ticky.db.dao.TaskieDao
 import com.raywenderlich.ticky.fragments.*
@@ -49,7 +51,7 @@ class MainActivity : AppCompatActivity(), OnboardingFragment.ButtonClicked,
     private lateinit var addTaskFrag: TaskAddingFragment
     private lateinit var editTaskFrag : TaskEditClass
     private lateinit var repository: TaskieRepository
-
+    private lateinit var BlankFragment : BlankFragment
 
 
 
@@ -63,12 +65,26 @@ class MainActivity : AppCompatActivity(), OnboardingFragment.ButtonClicked,
         FirstScreenFrag = FirstScreenFragment.getFirstScreenFragInstance()
         mySharedPref = MySharedPreference(this)
         addTaskFrag = TaskAddingFragment.getTaskFragInstance()
-        homeTaskScreenFragment = HomeTaskScreenFragment(EditTask = {task -> editTask(task)})
-
+        homeTaskScreenFragment = HomeTaskScreenFragment(EditTask = {task -> editTask(task)} , softKeyboardController = {softKeyboardEvent()})
+        BlankFragment = BlankFragment(clickevent = {int -> clickEvent(int)})
 
         initViewModel(this)
         startingApp()
 
+    }
+
+    private fun softKeyboardEvent() {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.frame_id , BlankFragment)
+            .commit()
+    }
+
+    private fun clickEvent(int: Int) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.frame_id , homeTaskScreenFragment)
+            .commit()
     }
 
     private fun initViewModel(context: Context) {
@@ -230,6 +246,8 @@ class MainActivity : AppCompatActivity(), OnboardingFragment.ButtonClicked,
             )
             .replace(R.id.frame_id, addTaskFrag)
             .commit()
+
+
     }
 
     override fun sortBy(sort: String) {
