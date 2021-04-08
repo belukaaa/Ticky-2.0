@@ -732,7 +732,7 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
         if(month == 11){
             myMonth = ("Dec")
         }
-        TASK_DATE= "Due $dayOfMonth $myMonth"
+        TASK_DATE= "Due $dayOfMonth $myMonth."
         if(dayOfMonth == 0 && myMonth.isEmpty()){
             calendar.visibility = VISIBLE
         }else{

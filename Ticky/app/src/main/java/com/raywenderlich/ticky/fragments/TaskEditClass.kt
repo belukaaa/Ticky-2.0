@@ -670,7 +670,7 @@ class TaskEditClass(taskie: Taskie) : Fragment(), DatePickerDialog.OnDateSetList
         if(month == 11){
             myMonth = ("Dec")
         }
-        TASK_DATE= "Due $dayOfMonth $myMonth"
+        TASK_DATE= "Due $dayOfMonth $myMonth."
         if(dayOfMonth == 0 && myMonth.isEmpty()){
             calendar1.visibility = View.VISIBLE
         }else{
