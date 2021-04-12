@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="calendar_size">150dp</dimen>
+    <dimen name="circle_distance">95dp</dimen>
+    <dimen name="task_adding_fragment_top_margin">40dp</dimen>
+    <dimen name="circle_size">22dp</dimen>
+
+
 </resources>

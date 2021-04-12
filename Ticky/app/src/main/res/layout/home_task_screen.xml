@@ -8,13 +8,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <androidx.core.widget.NestedScrollView
     layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="@color/FirstScreenBackground">
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -31,21 +27,91 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/vnaxotraiqneba11"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/calendar_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/vnaxot_ra_gamova"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:visibility="invisible"
+                android:id="@+id/imageView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/monday1"
+                app:layout_constraintEnd_toEndOf="@+id/monday1"
+                app:layout_constraintStart_toStartOf="@+id/monday1"
+                app:layout_constraintTop_toTopOf="@+id/Monday1"
+                app:srcCompat="@drawable/rectangle_completedd" />
+
+            <ImageView
+                android:visibility="invisible"
+                android:id="@+id/imageView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/tuesday1"
+                app:layout_constraintEnd_toEndOf="@+id/tuesday1"
+                app:layout_constraintStart_toStartOf="@+id/tuesday1"
+                app:layout_constraintTop_toTopOf="@+id/monday21"
+                app:srcCompat="@drawable/rectangle_completedd" />
+            <ImageView
+                android:visibility="invisible"
+
+                android:id="@+id/imageView31"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="@+id/wednesday1"
                 app:layout_constraintEnd_toEndOf="@+id/wednesday1"
                 app:layout_constraintStart_toStartOf="@+id/wednesday1"
                 app:layout_constraintTop_toTopOf="@+id/monday41"
+                app:srcCompat="@drawable/rectangle_completedd" />
+            <ImageView
+                android:visibility="invisible"
+
+                android:id="@+id/imageView41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/thursday1"
+                app:layout_constraintEnd_toEndOf="@+id/thursday1"
+                app:layout_constraintStart_toStartOf="@+id/thursday1"
+                app:layout_constraintTop_toTopOf="@+id/monday51"
+                app:srcCompat="@drawable/rectangle_completedd" />
+
+            <ImageView
+                android:visibility="invisible"
+
+                android:id="@+id/imageView51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/friday1"
+                app:layout_constraintEnd_toEndOf="@+id/friday1"
+                app:layout_constraintStart_toStartOf="@+id/friday1"
+                app:layout_constraintTop_toTopOf="@+id/monday61"
+                app:srcCompat="@drawable/rectangle_completedd" />
+
+            <ImageView
+                android:visibility="invisible"
+
+                android:id="@+id/imageView61"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/saturday1"
+                app:layout_constraintEnd_toEndOf="@+id/saturday1"
+                app:layout_constraintStart_toStartOf="@+id/saturday1"
+                app:layout_constraintTop_toTopOf="@+id/monday71"
+                app:srcCompat="@drawable/rectangle_completedd" />
+
+            <ImageView
+                android:visibility="invisible"
+
+                android:id="@+id/imageView71"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/sunday1"
+                app:layout_constraintEnd_toEndOf="@+id/sunday1"
+                app:layout_constraintStart_toStartOf="@+id/sunday1"
+                app:layout_constraintTop_toTopOf="@+id/monday81"
                 app:srcCompat="@drawable/rectangle_completedd" />
 
 
@@ -66,15 +132,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:textColor="#1E212B"
+                android:alpha="0.3"
                 android:id="@+id/monday81"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-
                 android:layout_marginBottom="10dp"
                 android:text="@string/s"
-
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/sunday1"
                 app:layout_constraintEnd_toEndOf="@+id/sunday1"
@@ -84,7 +148,8 @@
                 android:id="@+id/monday71"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:textColor="#1E212B"
+                android:alpha="0.3"
                 android:layout_marginBottom="10dp"
                 android:text="@string/s"
                 android:textSize="16sp"
@@ -96,7 +161,8 @@
                 android:id="@+id/monday61"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:textColor="#1E212B"
+                android:alpha="0.3"
                 android:layout_marginBottom="10dp"
                 android:text="@string/f"
                 android:textSize="16sp"
@@ -108,7 +174,8 @@
                 android:id="@+id/monday51"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:textColor="#1E212B"
+                android:alpha="0.3"
                 android:layout_marginBottom="10dp"
                 android:text="@string/t"
                 android:textSize="16sp"
@@ -122,13 +189,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:text="@string/w"
-                android:textColor="@color/selectedItemColor"
+                android:textColor="#1E212B"
+                android:alpha="0.3"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/wednesday1"
                 app:layout_constraintEnd_toEndOf="@+id/wednesday1"
                 app:layout_constraintStart_toStartOf="@+id/wednesday1" />
 
             <TextView
+                android:textColor="#1E212B"
+                android:alpha="0.3"
                 android:id="@+id/monday21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -140,6 +210,8 @@
                 app:layout_constraintStart_toStartOf="@+id/tuesday1" />
 
             <TextView
+                android:textColor="#1E212B"
+                android:alpha="0.3"
                 android:id="@+id/Monday1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -155,6 +227,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
+                android:layout_marginTop="80dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="30dp"
                 android:fontFamily="@font/ubuntu_medium"
@@ -164,6 +237,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tuesday1"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/datetime1"
                 tools:text="M" />
 
             <TextView

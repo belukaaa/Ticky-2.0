@@ -18,7 +18,6 @@
         android:text="@string/hey_i_m_ticky"
         android:textColor="#1e212b"
         android:textSize="28sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
@@ -49,6 +48,7 @@
 
     <TextView
         android:fontFamily="@font/ubuntu_light"
+        android:textAlignment="center"
 
         android:id="@+id/textView2"
         android:layout_width="match_parent"
@@ -61,7 +61,6 @@
         android:text="@string/i_know_you_ve_got_many_things_to_do_but_i_m_here_to_help_you_organize"
         android:textColor="#1e212b"
         android:textSize="16sp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -86,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:background="@drawable/disabled_save_button"
+        android:background="@drawable/real_onboarding_button"
         android:drawableLeft="@drawable/invalid_name"
         android:drawablePadding="8dp"
         android:text="@string/get_started_1"

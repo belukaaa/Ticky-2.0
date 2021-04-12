@@ -64,6 +64,8 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+
 
 //        WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE
 //        WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
@@ -110,14 +112,11 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val itemImageView = view.Task_input
-        ViewCompat.setTransitionName(itemImageView, "item_image")
 
 //        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN or WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
-
-
         val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.showSoftInput(view.Task_input, InputMethodManager.SHOW_IMPLICIT)
+        imm.showSoftInput(view.Task_input , InputMethodManager.SHOW_IMPLICIT)
+//        imm.showSoftInput(view.Task_input, InputMethodManager.SHOW_IMPLICIT)
 
 //        view.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN or WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
 
@@ -202,72 +201,7 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
         }
 
 
-       // setToKeyboardHeight(cancelButton , setKeyboardHeight(view))
-      //  setToKeyboardHeight(cancelText , setKeyboardHeight(view))
-       // setToKeyboardHeight(saveButton , setKeyboardHeight(view))
-
-      //  setToKeyboardHeight(cancelText , setKeyboardHeight(view)!!)
-
-
-       // checkKeyboardHeight(task_adding_layout)
-       // setKeyboardHeight(task_adding_layout)
-//       changeKeyboardHeight(view)
-
     }
-
-
-    private fun checkKeyboardHeight(parentLayout: View) {
-        parentLayout.getViewTreeObserver().addOnGlobalLayoutListener(OnGlobalLayoutListener {
-
-
-            val screenHeight: Int = parentLayout.getRootView().getHeight()
-            val r = Rect()
-            parentLayout.getWindowVisibleDisplayFrame(r)
-            val keyboardHeight = screenHeight - r.bottom
-
-
-
-            Log.w("Foo", String.format("keyboard height: %d", keyboardHeight))
-
-            val params = view?.saveButton?.layoutParams as ConstraintLayout.LayoutParams
-            params.bottomMargin = keyboardHeight
-            textView4.layoutParams = params
-
-
-        })
-
-    }
-    private fun changeKeyboardHeight(view: View) {
-        view.getViewTreeObserver().addOnGlobalLayoutListener(object : OnGlobalLayoutListener {
-            private val windowVisibleDisplayFrame = Rect()
-            override fun onGlobalLayout() {
-                view.getWindowVisibleDisplayFrame(windowVisibleDisplayFrame)
-                val visibleDecorViewHeight = windowVisibleDisplayFrame.height()
-
-                val currentKeyboardHeight: Int =
-                    view.getHeight() - windowVisibleDisplayFrame.bottom
-
-
-                Log.w("Foo", String.format("keyboard height: %d", currentKeyboardHeight))
-                if (currentKeyboardHeight > 100) {
-
-                    view.textView4.setPadding(0, 0, 0, currentKeyboardHeight)
-                    view.cancel_selecting2.setPadding(0, 0, 0, currentKeyboardHeight)
-
-                } else {
-                    view.textView4.setPadding(0, 0, 0, 0)
-                    view.cancel_selecting2.setPadding(0, 0, 0, 0)
-                }
-
-            }
-
-
-        })
-
-    }
-
-
-
 
     private fun setToDefs(){
         TASK_COLOR = ""
@@ -611,15 +545,10 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
         val selected = false
         val dateLong = TASK_DATE1
         val sortingColor = TASK_COLORED
-
-
-
         if(title.isNotEmpty()){
             val task = Taskie(0, title, color, datetime, checked, selected, dateLong, sortingColor)
             mTaskViewModel.addTask(task)
             setToDefs()
-
-
         }
     }
 
@@ -652,7 +581,6 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
         super.onDetach()
         listener = null
         listener1 = null
-
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
@@ -671,9 +599,6 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
         } catch (e: ParseException) {
             e.printStackTrace()
         }
-
-
-
 
         var myMonth = ""
 
@@ -721,44 +646,7 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
             xoo.visibility = VISIBLE
             dateCalendar.visibility = VISIBLE
             dateCalendar.text = TASK_DATE
-
         }
-
-
-
-    }
-
-    private fun setColorToRound(color: String) {
-        if (color == "#ff453a"){
-            task_color_red.visibility = VISIBLE
-        }
-        else if (color == "#ff9f0c"){
-            task_color_orange.visibility = VISIBLE
-        }
-        else if (color == "#ffd50c"){
-            task_color_yellow.visibility = VISIBLE
-        }
-        else if (color == "#32d74b"){
-            task_color_green.visibility = VISIBLE
-        }
-        else if (color == "#64d2ff"){
-            task_color_pachtiblue.visibility = VISIBLE
-        }
-        else if (color == "#0984ff"){
-            task_color_blue.visibility = VISIBLE
-        }
-        else if (color == "#5e5ce6"){
-            task_color_muqiblue.visibility = VISIBLE
-        }
-        else if (color == "#bf5af2"){
-            task_color_purple.visibility = VISIBLE
-        }
-        else if (color == "#ff375f"){
-            task_color_rose.visibility = VISIBLE
-        }else{
-
-        }
-
     }
 
 

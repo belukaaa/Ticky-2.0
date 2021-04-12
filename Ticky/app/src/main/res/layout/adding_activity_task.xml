@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
      android:layout_width="match_parent"
-    android:layout_alignParentBottom="true"
+    android:fillViewport="true"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/tralivali123"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         >
+
         <ImageView
 
             android:id="@+id/xoo"
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="51dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/task_adding_fragment_top_margin"
             android:fontFamily="@font/ubuntu_medium"
             android:text="@string/back"
             android:textColor="@android:color/black"
@@ -75,7 +75,7 @@
             android:id="@+id/calendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/task_adding_fragment_top_margin"
             android:layout_marginEnd="24dp"
             android:background="@drawable/date_picker"
             android:contentDescription="@string/todo"
@@ -92,13 +92,13 @@
             android:layout_weight="1"
             android:background="@null"
             android:focusable="true"
+            android:textColor="@android:color/black"
             android:fontFamily="@font/ubuntu_bold"
             android:hint="@string/type_your_text_here"
             android:inputType="textCapSentences|textMultiLine"
             android:maxLines="3"
             android:textCursorDrawable="@drawable/sticky"
             android:textSize="24sp"
-            android:transitionName="@string/sharedchars"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.03"
             app:layout_constraintStart_toStartOf="@+id/textView6"
@@ -111,11 +111,11 @@
         <Button
 
             android:id="@+id/oval1"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
 
             android:layout_marginStart="5dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="8dp"
             android:background="@drawable/round_button"
             app:layout_constraintEnd_toStartOf="@+id/oval2"
@@ -125,11 +125,11 @@
         <Button
 
             android:id="@+id/oval2"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
 
             android:layout_marginStart="8dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="8dp"
             android:background="@drawable/round_button1"
             app:layout_constraintEnd_toStartOf="@+id/oval3"
@@ -139,10 +139,10 @@
         <Button
 
             android:id="@+id/oval3"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="8dp"
             android:background="@drawable/round_button2"
             app:layout_constraintEnd_toStartOf="@+id/oval4"
@@ -152,11 +152,11 @@
         <Button
 
             android:id="@+id/oval4"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
 
             android:layout_marginStart="8dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="8dp"
             android:background="@drawable/round_button3"
             app:layout_constraintEnd_toStartOf="@+id/oval5"
@@ -166,11 +166,11 @@
         <Button
 
             android:id="@+id/oval5"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
 
             android:layout_marginStart="8dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="8dp"
             android:background="@drawable/round_button4"
             app:layout_constraintEnd_toStartOf="@+id/oval6"
@@ -180,11 +180,11 @@
         <Button
 
             android:id="@+id/oval6"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
 
             android:layout_marginStart="8dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="8dp"
             android:background="@drawable/round_button6"
             app:layout_constraintEnd_toStartOf="@+id/oval7"
@@ -194,11 +194,11 @@
         <Button
 
             android:id="@+id/oval7"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
 
             android:layout_marginStart="8dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="8dp"
             android:background="@drawable/round_button7"
             app:layout_constraintEnd_toStartOf="@+id/oval8"
@@ -208,10 +208,10 @@
         <Button
 
             android:id="@+id/oval8"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="8dp"
             android:background="@drawable/round_button8"
             app:layout_constraintEnd_toStartOf="@+id/oval9"
@@ -221,11 +221,11 @@
         <Button
 
             android:id="@+id/oval9"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
 
             android:layout_marginStart="8dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="33dp"
             android:background="@drawable/round_button9"
             app:layout_constraintEnd_toEndOf="parent"
@@ -238,7 +238,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="45dp"
             android:background="@drawable/onboarding_button"
             android:clickable="false"
@@ -258,14 +258,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="65dp"
-            android:layout_marginTop="52dp"
             android:layout_marginEnd="45dp"
             android:fontFamily="@font/ubuntu_medium"
             android:text="@string/cancel"
             android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/saveButton"
             app:layout_constraintEnd_toStartOf="@+id/saveButton"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/oval2" />
+            app:layout_constraintTop_toTopOf="@+id/saveButton" />
 
         <TextView
             android:id="@+id/dateCalendar"
@@ -394,4 +394,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

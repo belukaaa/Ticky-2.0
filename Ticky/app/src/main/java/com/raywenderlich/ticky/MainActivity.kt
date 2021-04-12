@@ -2,25 +2,16 @@ package com.raywenderlich.ticky
 
 import android.content.Context
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
-import android.view.View
-import android.view.WindowManager
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.raywenderlich.resizekeyboardwhenitsappears.BlankFragment
 import com.raywenderlich.ticky.db.TaskieDatabase
 import com.raywenderlich.ticky.db.dao.TaskieDao
 import com.raywenderlich.ticky.fragments.*
 import com.raywenderlich.ticky.repository.Factory
 import com.raywenderlich.ticky.repository.TaskViewModel
 import com.raywenderlich.ticky.repository.TaskieRepository
-import com.raywenderlich.ticky.taskrecyclerview.TodoListAdapter
 import kotlinx.android.synthetic.main.adding_activity_task.*
 import kotlinx.android.synthetic.main.adding_activity_task.view.*
 import kotlinx.android.synthetic.main.dialog_fragment.*
@@ -31,14 +22,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.util.ArrayList
 
 
 class MainActivity : AppCompatActivity(), OnboardingFragment.ButtonClicked,
     FirstScreenFragment.Click, TaskAddingFragment.BttnClicked, TaskAddingFragment.Task_addingButton,
     HomeTaskScreenFragment.HomeTaskScreenButton , CustomDialogFragment.DialogSorting , TaskEditClass.ICancelEditing{
-
-
 
     private lateinit var factory: Factory
     private lateinit var mTaskViewModel: TaskViewModel
@@ -51,7 +39,6 @@ class MainActivity : AppCompatActivity(), OnboardingFragment.ButtonClicked,
     private lateinit var addTaskFrag: TaskAddingFragment
     private lateinit var editTaskFrag : TaskEditClass
     private lateinit var repository: TaskieRepository
-    private lateinit var BlankFragment : BlankFragment
 
 
 
@@ -59,33 +46,18 @@ class MainActivity : AppCompatActivity(), OnboardingFragment.ButtonClicked,
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
         onboardingFrag = OnboardingFragment.getFirstFragInstance()
         FirstScreenFrag = FirstScreenFragment.getFirstScreenFragInstance()
         mySharedPref = MySharedPreference(this)
         addTaskFrag = TaskAddingFragment.getTaskFragInstance()
-        homeTaskScreenFragment = HomeTaskScreenFragment(EditTask = {task -> editTask(task)} , softKeyboardController = {softKeyboardEvent()})
-        BlankFragment = BlankFragment(clickevent = {int -> clickEvent(int)})
+        homeTaskScreenFragment = HomeTaskScreenFragment(EditTask = {task -> editTask(task)})
 
         initViewModel(this)
         startingApp()
 
     }
 
-    private fun softKeyboardEvent() {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.frame_id , BlankFragment)
-            .commit()
-    }
-
-    private fun clickEvent(int: Int) {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.frame_id , homeTaskScreenFragment)
-            .commit()
-    }
 
     private fun initViewModel(context: Context) {
 

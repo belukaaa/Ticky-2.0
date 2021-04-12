@@ -16,4 +16,5 @@
     <color name="bluedark">#5e5ce6</color>
     <color name="purple">#bf5af2</color>
     <color name="rose">#ff375f</color>
+    <color name="default_calendar_days_color">#1E212B</color>
 </resources>

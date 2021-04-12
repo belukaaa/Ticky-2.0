@@ -10,8 +10,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/vnaxotraiqneba"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/calendar_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/vnaxot_ra_gamova"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -109,6 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
 
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="30dp"
             android:fontFamily="@font/ubuntu_medium"
@@ -118,6 +119,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/tuesday"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/datetime"
             tools:text="M" />
 
         <TextView
@@ -284,7 +286,7 @@
         android:layout_marginStart="133dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="133dp"
-        android:background="@drawable/disabled_save_button"
+        android:background="@drawable/first_screen_add_task_button"
         android:drawableLeft="@drawable/plus"
         android:drawablePadding="8dp"
         android:text="@string/new_task"

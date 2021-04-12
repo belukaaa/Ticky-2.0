@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="51dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/task_adding_fragment_top_margin"
             android:fontFamily="@font/ubuntu_medium"
             android:text="@string/back"
             android:textColor="@android:color/black"
@@ -90,7 +90,7 @@
             android:id="@+id/calendar1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/task_adding_fragment_top_margin"
             android:layout_marginEnd="24dp"
             android:background="@drawable/date_picker"
             android:contentDescription="@string/todo"
@@ -126,11 +126,11 @@
         <Button
 
             android:id="@+id/oval11"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
 
             android:layout_marginStart="5dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="8dp"
             android:background="@drawable/round_button"
             app:layout_constraintEnd_toStartOf="@+id/oval21"
@@ -140,11 +140,10 @@
         <Button
 
             android:id="@+id/oval21"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="8dp"
             android:background="@drawable/round_button1"
             app:layout_constraintEnd_toStartOf="@+id/oval31"
@@ -154,10 +153,10 @@
         <Button
 
             android:id="@+id/oval31"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="8dp"
             android:background="@drawable/round_button2"
             app:layout_constraintEnd_toStartOf="@+id/oval41"
@@ -167,11 +166,10 @@
         <Button
 
             android:id="@+id/oval41"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="8dp"
             android:background="@drawable/round_button3"
             app:layout_constraintEnd_toStartOf="@+id/oval51"
@@ -181,11 +179,11 @@
         <Button
 
             android:id="@+id/oval51"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
 
             android:layout_marginStart="8dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="8dp"
             android:background="@drawable/round_button4"
             app:layout_constraintEnd_toStartOf="@+id/oval61"
@@ -195,11 +193,11 @@
         <Button
 
             android:id="@+id/oval61"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
 
             android:layout_marginStart="8dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="8dp"
             android:background="@drawable/round_button6"
             app:layout_constraintEnd_toStartOf="@+id/oval71"
@@ -209,11 +207,11 @@
         <Button
 
             android:id="@+id/oval71"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
 
             android:layout_marginStart="8dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="8dp"
             android:background="@drawable/round_button7"
             app:layout_constraintEnd_toStartOf="@+id/oval81"
@@ -223,10 +221,10 @@
         <Button
 
             android:id="@+id/oval81"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="8dp"
             android:background="@drawable/round_button8"
             app:layout_constraintEnd_toStartOf="@+id/oval91"
@@ -236,11 +234,10 @@
         <Button
 
             android:id="@+id/oval91"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="@dimen/circle_distance"
             android:layout_marginEnd="33dp"
             android:background="@drawable/round_button9"
             app:layout_constraintEnd_toEndOf="parent"
@@ -252,7 +249,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="45dp"
             android:background="@drawable/onboarding_button"
             android:clickable="false"
@@ -271,14 +268,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="83dp"
-            android:layout_marginTop="52dp"
             android:layout_marginEnd="45dp"
             android:fontFamily="@font/ubuntu_medium"
             android:text="@string/cancel"
             android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/saveButton1"
             app:layout_constraintEnd_toStartOf="@+id/saveButton1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/oval21" />
+            app:layout_constraintTop_toTopOf="@+id/saveButton1" />
 
 
         <ImageView

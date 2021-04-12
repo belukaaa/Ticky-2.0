@@ -1,7 +1,9 @@
 package com.raywenderlich.ticky.fragments
 
+import android.annotation.SuppressLint
 import android.app.ActionBar
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -36,7 +38,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit , val softKeyboardController : () -> Unit): Fragment() , SelectedTaskAdapter.unSelectListener , TodoListAdapter.UpdateTask , SelectedTaskAdapter.updateTaskie , TodoListAdapter.EditTask  {
+class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() , SelectedTaskAdapter.unSelectListener , TodoListAdapter.UpdateTask , SelectedTaskAdapter.updateTaskie , TodoListAdapter.EditTask  {
 
     var taskie : Taskie = Taskie(0,"title",sortingColor = 10)
 
@@ -91,8 +93,7 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit , val softKey
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setDatee()
-
+        setDate()
         val heroImageView = view.recycle
         ViewCompat.setTransitionName(heroImageView, "hero_image")
 
@@ -208,9 +209,7 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit , val softKey
         }
         setSortingName()
 
-        view.sunday1.setOnClickListener {
-            softKeyboardController.invoke()
-        }
+
 
     }
 
@@ -221,6 +220,7 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit , val softKey
             view?.textView5?.text = sortBy
         }
     }
+
 
 
 
@@ -250,6 +250,213 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit , val softKey
 //            return  HomeTaskScreenFragment(EditTask = )
 //        }
 //    }
+
+    private fun setDefaultColors(){
+        Monday1.setTextColor(resources.getColor(R.color.default_calendar_days_color))
+        monday21.setTextColor(resources.getColor(R.color.default_calendar_days_color))
+        monday41.setTextColor(resources.getColor(R.color.default_calendar_days_color))
+        monday51.setTextColor(resources.getColor(R.color.default_calendar_days_color))
+        monday61.setTextColor(resources.getColor(R.color.default_calendar_days_color))
+        monday71.setTextColor(resources.getColor(R.color.default_calendar_days_color))
+        monday81.setTextColor(resources.getColor(R.color.default_calendar_days_color))
+    }
+    private fun setDefaultPosition(){
+        imageView11.visibility = View.INVISIBLE
+        imageView21.visibility = View.INVISIBLE
+        imageView31.visibility = View.INVISIBLE
+        imageView41.visibility = View.INVISIBLE
+        imageView51.visibility = View.INVISIBLE
+        imageView61.visibility = View.INVISIBLE
+        imageView71.visibility = View.INVISIBLE
+    }
+
+    private fun enableBlue(int: Int){
+
+        if (int == 2){
+            setDefaultPosition()
+            setDefaultColors()
+            imageView11.visibility = View.VISIBLE
+            Monday1.setTextColor(resources.getColor(R.color.selectedItemColor))
+            Monday1.alpha = 1f
+        }
+        else if (int == 3) {
+            setDefaultColors()
+            setDefaultPosition()
+            imageView21.visibility = View.VISIBLE
+            monday21.setTextColor(resources.getColor(R.color.selectedItemColor))
+            monday21.alpha = 1f
+        }
+        else if (int == 4) {
+            setDefaultColors()
+            setDefaultPosition()
+            imageView31.visibility = View.VISIBLE
+            monday41.setTextColor(resources.getColor(R.color.selectedItemColor))
+            monday41.alpha = 1f
+        }
+        else if (int == 5) {
+            setDefaultColors()
+            setDefaultPosition()
+            imageView41.visibility = View.VISIBLE
+            monday51.setTextColor(resources.getColor(R.color.selectedItemColor))
+            monday51.alpha = 1f
+        }
+        else if (int == 6){
+            setDefaultColors()
+            setDefaultPosition()
+            imageView51.visibility = View.VISIBLE
+            monday61.setTextColor(resources.getColor(R.color.selectedItemColor))
+            monday61.alpha = 1f
+        }
+        else if (int == 0) {
+            setDefaultColors()
+            setDefaultPosition()
+            imageView61.visibility = View.VISIBLE
+            monday71.setTextColor(resources.getColor(R.color.selectedItemColor))
+            monday71.alpha = 1f
+        }
+        else if (int == 1){
+            setDefaultColors()
+            setDefaultPosition()
+            imageView71.visibility = View.VISIBLE
+            monday81.setTextColor(resources.getColor(R.color.selectedItemColor))
+            monday81.alpha = 1f
+        }
+
+    }
+    private fun setDate(){
+
+    val c = Calendar.getInstance()
+    val month = c.get(Calendar.MONTH)
+    val year = c.get(Calendar.YEAR)
+    val dayOfWeek = c.get(Calendar.DAY_OF_WEEK)
+    val dayOfMonth = c.get(Calendar.DAY_OF_MONTH)
+
+// dayofweek = 2 monday
+    if (dayOfWeek == 2) {
+
+        enableBlue(dayOfWeek)
+        view?.monday1?.text = "$dayOfMonth"
+        view?.tuesday1?.text = (dayOfMonth + 1).toString()
+        view?.wednesday1?.text = (dayOfMonth + 2).toString()
+        view?.thursday1?.text = (dayOfMonth + 3).toString()
+        view?.friday1?.text = (dayOfMonth + 4).toString()
+        view?.saturday1?.text = (dayOfMonth + 5).toString()
+        view?.sunday1?.text = (dayOfMonth + 6).toString()
+
+    }
+    if (dayOfWeek ==3 ){
+        enableBlue(dayOfWeek)
+
+        view?.monday1?.text = (dayOfMonth - 1).toString()
+        view?.tuesday1?.text = (dayOfMonth).toString()
+        view?.wednesday1?.text = (dayOfMonth + 1).toString()
+        view?.thursday1?.text = (dayOfMonth + 2).toString()
+        view?.friday1?.text = (dayOfMonth + 3).toString()
+        view?.saturday1?.text = (dayOfMonth + 4).toString()
+        view?.sunday1?.text = (dayOfMonth + 5).toString()
+    }
+    if (dayOfWeek == 4 ){
+        enableBlue(dayOfWeek)
+
+        view?.monday1?.text = (dayOfMonth - 2).toString()
+        view?.tuesday1?.text = (dayOfMonth - 1).toString()
+        view?.wednesday1?.text = (dayOfMonth ).toString()
+        view?.thursday1?.text = (dayOfMonth + 1).toString()
+        view?.friday1?.text = (dayOfMonth + 2).toString()
+        view?.saturday1?.text = (dayOfMonth + 3).toString()
+        view?.sunday1?.text = (dayOfMonth + 4).toString()
+    }
+    if (dayOfWeek ==5 ){
+        enableBlue(dayOfWeek)
+
+        view?.monday1?.text = (dayOfMonth - 3).toString()
+        view?.tuesday1?.text = (dayOfMonth - 2).toString()
+        view?.wednesday1?.text = (dayOfMonth - 1).toString()
+        view?.thursday1?.text = (dayOfMonth ).toString()
+        view?.friday1?.text = (dayOfMonth + 1 ).toString()
+        view?.saturday1?.text = (dayOfMonth + 2).toString()
+        view?.sunday1?.text = (dayOfMonth + 3).toString()
+    }
+    if (dayOfWeek == 6 ){
+        enableBlue(dayOfWeek)
+
+        view?.monday1?.text = (dayOfMonth - 4).toString()
+        view?.tuesday1?.text = (dayOfMonth - 3).toString()
+        view?.wednesday1?.text = (dayOfMonth - 2).toString()
+        view?.thursday1?.text = (dayOfMonth - 1).toString()
+        view?.friday1?.text = (dayOfMonth ).toString()
+        view?.saturday1?.text = (dayOfMonth + 1).toString()
+        view?.sunday1?.text = (dayOfMonth + 2).toString()
+    }
+    if (dayOfWeek == 1  ){
+        enableBlue(dayOfWeek)
+
+        view?.monday1?.text = (dayOfMonth - 5).toString()
+        view?.tuesday1?.text = (dayOfMonth - 4).toString()
+        view?.wednesday1?.text = (dayOfMonth -3).toString()
+        view?.thursday1?.text = (dayOfMonth -2).toString()
+        view?.friday1?.text = (dayOfMonth -1).toString()
+        view?.saturday1?.text = (dayOfMonth).toString()
+        view?.sunday1?.text = (dayOfMonth + 1).toString()
+    }
+    if (dayOfWeek == 0 ) {
+        enableBlue(dayOfWeek)
+
+        view?.monday1?.text = (dayOfMonth - 6).toString()
+        view?.tuesday1?.text = (dayOfMonth - 5).toString()
+        view?.wednesday1?.text = (dayOfMonth - 4).toString()
+        view?.thursday1?.text = (dayOfMonth - 3).toString()
+        view?.friday1?.text = (dayOfMonth - 2).toString()
+        view?.saturday1?.text = (dayOfMonth - 1).toString()
+        view?.sunday1?.text = (dayOfMonth).toString()
+    }
+
+
+
+
+
+
+
+    if (month == 0) {
+        datetime1.text = ("January, $year")
+    }
+    if (month == 1) {
+        datetime1.text = ("February, $year")
+    }
+    if (month == 2) {
+        datetime1.text = ("March, $year")
+    }
+    if (month == 3) {
+        datetime1.text = ("April, $year")
+    }
+    if (month == 4) {
+        datetime1.text = ("May, $year")
+    }
+    if (month == 5) {
+        datetime1.text = ("June, $year")
+    }
+    if (month == 6) {
+        datetime1.text = ("July, $year")
+    }
+    if (month == 7) {
+        datetime1.text = ("August, $year")
+    }
+    if (month == 8) {
+        datetime1.text = ("September, $year")
+    }
+    if (month == 9) {
+        datetime1.text = ("October, $year")
+    }
+    if (month == 10) {
+        datetime1.text = ("November, $year")
+    }
+    if (month == 11) {
+        datetime1.text = ("December, $year")
+    }
+
+
+}
+
     private fun setDatee(){
         val c = Calendar.getInstance()
         val month = c.get(Calendar.MONTH)
