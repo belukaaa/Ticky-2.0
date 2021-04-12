@@ -84,6 +84,7 @@
 
 
         <EditText
+
             android:id="@+id/Task_input"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -92,11 +93,12 @@
             android:layout_weight="1"
             android:background="@null"
             android:focusable="true"
-            android:textColor="@android:color/black"
+            android:textColor="@color/default_calendar_days_color"
             android:fontFamily="@font/ubuntu_bold"
             android:hint="@string/type_your_text_here"
             android:inputType="textCapSentences|textMultiLine"
             android:maxLines="3"
+            android:textColorHint="@color/hint_color"
             android:textCursorDrawable="@drawable/sticky"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -113,6 +115,7 @@
             android:id="@+id/oval1"
             android:layout_width="@dimen/circle_size"
             android:layout_height="@dimen/circle_size"
+            android:shadowRadius="0"
 
             android:layout_marginStart="5dp"
             android:layout_marginTop="@dimen/circle_distance"
@@ -127,6 +130,7 @@
             android:id="@+id/oval2"
             android:layout_width="@dimen/circle_size"
             android:layout_height="@dimen/circle_size"
+            android:shadowRadius="0"
 
             android:layout_marginStart="8dp"
             android:layout_marginTop="@dimen/circle_distance"
@@ -137,6 +141,7 @@
             app:layout_constraintTop_toBottomOf="@+id/Task_input" />
 
         <Button
+            android:shadowRadius="0"
 
             android:id="@+id/oval3"
             android:layout_width="@dimen/circle_size"
@@ -150,6 +155,7 @@
             app:layout_constraintTop_toBottomOf="@id/Task_input" />
 
         <Button
+            android:shadowRadius="0"
 
             android:id="@+id/oval4"
             android:layout_width="@dimen/circle_size"
@@ -164,6 +170,7 @@
             app:layout_constraintTop_toBottomOf="@+id/Task_input" />
 
         <Button
+            android:shadowRadius="0"
 
             android:id="@+id/oval5"
             android:layout_width="@dimen/circle_size"
@@ -178,6 +185,7 @@
             app:layout_constraintTop_toBottomOf="@+id/Task_input" />
 
         <Button
+            android:shadowRadius="0"
 
             android:id="@+id/oval6"
             android:layout_width="@dimen/circle_size"
@@ -192,6 +200,7 @@
             app:layout_constraintTop_toBottomOf="@+id/Task_input" />
 
         <Button
+            android:shadowRadius="0"
 
             android:id="@+id/oval7"
             android:layout_width="@dimen/circle_size"
@@ -206,6 +215,7 @@
             app:layout_constraintTop_toBottomOf="@+id/Task_input" />
 
         <Button
+            android:shadowRadius="0"
 
             android:id="@+id/oval8"
             android:layout_width="@dimen/circle_size"
@@ -223,6 +233,7 @@
             android:id="@+id/oval9"
             android:layout_width="@dimen/circle_size"
             android:layout_height="@dimen/circle_size"
+            android:shadowRadius="0"
 
             android:layout_marginStart="8dp"
             android:layout_marginTop="@dimen/circle_distance"
@@ -286,13 +297,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:layout_marginEnd="3dp"
+            android:layout_marginEnd="5dp"
             app:layout_constraintBottom_toBottomOf="@+id/textView4"
             app:layout_constraintEnd_toStartOf="@+id/textView4"
             app:layout_constraintTop_toTopOf="@+id/textView4"
             app:srcCompat="@drawable/gone_taskk" />
 
         <ImageView
+            android:elevation="0dp"
             android:id="@+id/circleBlue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -305,6 +317,7 @@
 
         <ImageView
             android:id="@+id/circleRed"
+            android:elevation="0dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"
@@ -316,6 +329,7 @@
 
         <ImageView
             android:id="@+id/circleOrange"
+            android:elevation="0dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"
@@ -330,6 +344,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"
+            android:elevation="0dp"
             app:layout_constraintBottom_toBottomOf="@+id/oval3"
             app:layout_constraintEnd_toEndOf="@+id/oval3"
             app:layout_constraintStart_toStartOf="@+id/oval3"
@@ -340,6 +355,7 @@
             android:id="@+id/circleGreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:elevation="0dp"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/oval4"
             app:layout_constraintEnd_toEndOf="@+id/oval4"
@@ -351,6 +367,7 @@
             android:id="@+id/lightBlue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:elevation="0dp"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/oval5"
             app:layout_constraintEnd_toEndOf="@+id/oval5"
@@ -363,6 +380,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"
+            android:elevation="0dp"
             app:layout_constraintBottom_toBottomOf="@+id/oval7"
             app:layout_constraintEnd_toEndOf="@+id/oval7"
             app:layout_constraintStart_toStartOf="@+id/oval7"
@@ -373,6 +391,7 @@
             android:id="@+id/circle_purple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:elevation="0dp"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/oval8"
             app:layout_constraintEnd_toEndOf="@+id/oval8"
@@ -385,6 +404,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"
+            android:elevation="0dp"
             app:layout_constraintBottom_toBottomOf="@+id/oval9"
             app:layout_constraintEnd_toEndOf="@+id/oval9"
             app:layout_constraintStart_toStartOf="@+id/oval9"

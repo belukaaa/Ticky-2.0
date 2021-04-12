@@ -242,16 +242,16 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
         view?.Task_input?.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 saveButton.setBackgroundResource(R.drawable.onboarding_button)
-
+                Task_input.setHintTextColor(resources.getColor(R.color.hint_color))
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
                 if (Task_input.text.toString().trim({ it <= ' ' }).isEmpty()) {
                     saveButton.setEnabled(false)
                     saveButton.setBackgroundResource(R.drawable.onboarding_button)
 
                 } else {
+
 
                     saveButton.setEnabled(true)
                     saveButton.setBackgroundResource(R.drawable.disabled_save_button)
@@ -525,7 +525,7 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
         datePickerDialog.show()
         datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000)
         datePickerDialog.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK)
-        datePickerDialog.getButton(DatePickerDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK)
+        datePickerDialog.getButton(DatePickerDialog.BUTTON_POSITIVE).setTextColor(resources.getColor(R.color.datePickerOkButtonCollor))
         //0xFF0000FF
 
 

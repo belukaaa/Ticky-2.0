@@ -17,4 +17,6 @@
     <color name="purple">#bf5af2</color>
     <color name="rose">#ff375f</color>
     <color name="default_calendar_days_color">#1E212B</color>
+    <color name="hint_color">#1A1E212B</color>
+    <color name="datePickerOkButtonCollor">#32CCFF</color>
 </resources>
