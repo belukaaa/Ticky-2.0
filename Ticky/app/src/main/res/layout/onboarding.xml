@@ -47,19 +47,19 @@
         app:srcCompat="@drawable/bitmap" />
 
     <TextView
-        android:fontFamily="@font/ubuntu_light"
-        android:textAlignment="center"
-
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="61dp"
+        android:layout_marginStart="51dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="61dp"
+        android:layout_marginEnd="51dp"
+        android:fontFamily="@font/ubuntu_regular"
         android:gravity="center_horizontal"
         android:lineSpacingExtra="12sp"
         android:text="@string/i_know_you_ve_got_many_things_to_do_but_i_m_here_to_help_you_organize"
+        android:textAlignment="center"
         android:textColor="#1e212b"
+        android:textFontWeight="400"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +89,7 @@
         android:drawableLeft="@drawable/invalid_name"
         android:drawablePadding="8dp"
         android:text="@string/get_started_1"
-        android:textColor="@android:color/white"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView2"

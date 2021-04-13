@@ -120,6 +120,7 @@
         android:paddingBottom="2dp"
         android:layout_marginBottom="15dp"
         android:fontFamily="@font/ubuntu_medium"
+        android:textFontWeight="500"
         android:isScrollContainer="true"
         android:lineSpacingExtra="1dp"
         android:scrollbars="vertical"
