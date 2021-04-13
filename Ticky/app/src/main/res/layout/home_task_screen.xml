@@ -470,10 +470,10 @@
 </androidx.core.widget.NestedScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+
         android:id="@+id/selected_item_funcs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -504,6 +504,7 @@
             android:fadingEdgeLength="0dp"
             android:shadowRadius="0"
             android:id="@+id/done_button"
+            android:layout_marginTop="80dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"

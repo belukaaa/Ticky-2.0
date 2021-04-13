@@ -1,6 +1,5 @@
 package com.raywenderlich.ticky.fragments
 
-import android.R.string
 import android.app.DatePickerDialog
 import android.content.Context
 import android.graphics.Color
@@ -22,14 +21,12 @@ import com.raywenderlich.ticky.db.TaskieDatabase
 import com.raywenderlich.ticky.db.dao.TaskieDao
 import com.raywenderlich.ticky.repository.TaskViewModel
 import com.raywenderlich.ticky.repository.TaskieRepository
-import kotlinx.android.synthetic.main.adding_activity_task.*
-import kotlinx.android.synthetic.main.adding_activity_task.view.*
 import kotlinx.android.synthetic.main.edit_task_layout.*
 import kotlinx.android.synthetic.main.edit_task_layout.view.*
-import kotlinx.android.synthetic.main.todo_list_view_holder.view.*
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class TaskEditClass(taskie: Taskie) : Fragment(), DatePickerDialog.OnDateSetListener {
@@ -96,8 +93,8 @@ class TaskEditClass(taskie: Taskie) : Fragment(), DatePickerDialog.OnDateSetList
         val oval8 = oval81 as Button
         val oval9 = oval91 as Button
         val saveButton = saveButton1 as Button
-        val cancelText = textView41 as TextView
-        val cancelButton = cancel_selecting21 as ImageView
+        val cancelText = delete_textView_edit_mode as TextView
+        val cancelButton = delete_task_button_edit_mode as ImageView
         val input = Task_input1 as EditText
         val textView6 = textView61 as TextView
 
@@ -130,17 +127,25 @@ class TaskEditClass(taskie: Taskie) : Fragment(), DatePickerDialog.OnDateSetList
         }
         view.back_to_tasks1.setOnClickListener {
             setToDefs()
-            listener?.cancelEditing()
-//            listener?.bttnClicked()
-        }
-        view.textView41.setOnClickListener {
-            setToDefs()
-            listener?.cancelEditing()
 
+            listener?.cancelEditing()
 //            listener?.bttnClicked()
         }
-        view.cancel_selecting21.setOnClickListener {
+        view.delete_textView_edit_mode.setOnClickListener {
+            val tasksToDelete = ArrayList<Taskie>()
+            tasksToDelete.add(task)
+            mTaskViewModel.deleteUser(tasksToDelete)
             setToDefs()
+            tasksToDelete.clear()
+            listener?.cancelEditing()
+//            listener?.bttnClicked()
+        }
+        view.delete_task_button_edit_mode.setOnClickListener {
+            val tasksToDelete = ArrayList<Taskie>()
+            tasksToDelete.add(task)
+            mTaskViewModel.deleteUser(tasksToDelete)
+            setToDefs()
+            tasksToDelete.clear()
             listener?.cancelEditing()
 
 //            listener?.bttnClicked()

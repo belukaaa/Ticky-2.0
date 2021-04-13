@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
 
+            android:alpha="0.3"
 
             android:text="@string/s"
             android:textSize="16sp"
@@ -37,6 +38,7 @@
             android:id="@+id/monday7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:alpha="0.3"
 
             android:layout_marginBottom="10dp"
             android:text="@string/s"
@@ -49,6 +51,7 @@
             android:id="@+id/monday6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:alpha="0.3"
 
             android:layout_marginBottom="10dp"
             android:text="@string/f"
@@ -61,6 +64,7 @@
             android:id="@+id/monday5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:alpha="0.3"
 
             android:layout_marginBottom="10dp"
             android:text="@string/t"
@@ -70,12 +74,13 @@
             app:layout_constraintStart_toStartOf="@+id/thursday" />
 
         <TextView
+            android:alpha="0.3"
+
             android:id="@+id/monday4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="@string/w"
-            android:textColor="#32ccff"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/wednesday"
             app:layout_constraintEnd_toEndOf="@+id/wednesday"
@@ -84,6 +89,8 @@
         <TextView
             android:id="@+id/monday2"
             android:layout_width="wrap_content"
+            android:alpha="0.3"
+
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="@string/t"
@@ -95,6 +102,8 @@
         <TextView
             android:id="@+id/Monday"
             android:layout_width="wrap_content"
+            android:alpha="0.3"
+
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="@string/m"
@@ -235,7 +244,31 @@
             tools:text="July,2020" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:visibility="invisible"
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/monday"
+            app:layout_constraintEnd_toEndOf="@+id/monday"
+            app:layout_constraintStart_toStartOf="@+id/monday"
+            app:layout_constraintTop_toTopOf="@+id/Monday"
+            app:srcCompat="@drawable/rectangle_completedd" />
+
+        <ImageView
+            android:visibility="invisible"
+
+            android:id="@+id/imageView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/tuesday"
+            app:layout_constraintEnd_toEndOf="@+id/tuesday"
+            app:layout_constraintStart_toStartOf="@+id/tuesday"
+            app:layout_constraintTop_toTopOf="@+id/monday2"
+            app:srcCompat="@drawable/rectangle_completedd" />
+        <ImageView
+            android:id="@+id/imageView31"
+            android:visibility="invisible"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/wednesday"
@@ -243,6 +276,55 @@
             app:layout_constraintStart_toStartOf="@+id/wednesday"
             app:layout_constraintTop_toTopOf="@+id/monday4"
             app:srcCompat="@drawable/rectangle_completedd" />
+
+        <ImageView
+            android:visibility="invisible"
+
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/thursday"
+            app:layout_constraintEnd_toEndOf="@+id/thursday"
+            app:layout_constraintStart_toStartOf="@+id/thursday"
+            app:layout_constraintTop_toTopOf="@+id/monday5"
+            app:srcCompat="@drawable/rectangle_completedd" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:visibility="invisible"
+
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/friday"
+            app:layout_constraintEnd_toEndOf="@+id/friday"
+            app:layout_constraintStart_toStartOf="@+id/friday"
+            app:layout_constraintTop_toTopOf="@+id/monday6"
+            app:srcCompat="@drawable/rectangle_completedd" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:visibility="invisible"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/saturday"
+            app:layout_constraintEnd_toEndOf="@+id/saturday"
+            app:layout_constraintStart_toStartOf="@+id/saturday"
+            app:layout_constraintTop_toTopOf="@+id/monday7"
+            app:srcCompat="@drawable/rectangle_completedd" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+
+            app:layout_constraintBottom_toBottomOf="@+id/sunday"
+            app:layout_constraintEnd_toEndOf="@+id/sunday"
+            app:layout_constraintStart_toStartOf="@+id/sunday"
+            app:layout_constraintTop_toTopOf="@+id/monday8"
+            app:srcCompat="@drawable/rectangle_completedd" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

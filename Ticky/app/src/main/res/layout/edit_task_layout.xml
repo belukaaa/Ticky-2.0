@@ -107,15 +107,15 @@
             android:layout_weight="1"
             android:background="@null"
             android:focusable="true"
+            android:textColor="@color/default_calendar_days_color"
+            android:textColorHint="@color/hint_color"
             android:fontFamily="@font/ubuntu_bold"
             android:hint="@string/type_your_text_here"
             android:inputType="textCapSentences|textMultiLine"
             android:maxLines="3"
             android:textCursorDrawable="@drawable/sticky"
             android:textSize="24sp"
-            android:transitionName="@string/sharedchars"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.03"
             app:layout_constraintStart_toStartOf="@+id/textView61"
             app:layout_constraintTop_toBottomOf="@+id/textView61">
 
@@ -260,17 +260,17 @@
             android:textColor="@android:color/white"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView41"
+            app:layout_constraintStart_toEndOf="@+id/delete_textView_edit_mode"
             app:layout_constraintTop_toBottomOf="@+id/oval71" />
 
         <TextView
-            android:id="@+id/textView41"
+            android:id="@+id/delete_textView_edit_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="83dp"
             android:layout_marginEnd="45dp"
             android:fontFamily="@font/ubuntu_medium"
-            android:text="@string/cancel"
+            android:text="@string/delete"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/saveButton1"
             app:layout_constraintEnd_toStartOf="@+id/saveButton1"
@@ -279,15 +279,14 @@
 
 
         <ImageView
-            android:id="@+id/cancel_selecting21"
+            android:id="@+id/delete_task_button_edit_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="3dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView41"
-            app:layout_constraintEnd_toStartOf="@+id/textView41"
-            app:layout_constraintTop_toTopOf="@+id/textView41"
-            app:srcCompat="@drawable/gone_taskk" />
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/delete_task"
+            app:layout_constraintBottom_toBottomOf="@+id/delete_textView_edit_mode"
+            app:layout_constraintEnd_toStartOf="@+id/delete_textView_edit_mode"
+            app:layout_constraintTop_toTopOf="@+id/delete_textView_edit_mode" />
 
         <ImageView
             android:id="@+id/circleBlue1"

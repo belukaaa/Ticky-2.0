@@ -335,7 +335,7 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
     if (dayOfWeek == 2) {
 
         enableBlue(dayOfWeek)
-        view?.monday1?.text = "$dayOfMonth"
+        view?.monday1?.text = dayOfMonth.toString()
         view?.tuesday1?.text = (dayOfMonth + 1).toString()
         view?.wednesday1?.text = (dayOfMonth + 2).toString()
         view?.thursday1?.text = (dayOfMonth + 3).toString()
@@ -388,7 +388,7 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
         view?.saturday1?.text = (dayOfMonth + 1).toString()
         view?.sunday1?.text = (dayOfMonth + 2).toString()
     }
-    if (dayOfWeek == 1  ){
+    if (dayOfWeek == 0  ){
         enableBlue(dayOfWeek)
 
         view?.monday1?.text = (dayOfMonth - 5).toString()
@@ -399,7 +399,7 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
         view?.saturday1?.text = (dayOfMonth).toString()
         view?.sunday1?.text = (dayOfMonth + 1).toString()
     }
-    if (dayOfWeek == 0 ) {
+    if (dayOfWeek == 1 ) {
         enableBlue(dayOfWeek)
 
         view?.monday1?.text = (dayOfMonth - 6).toString()
@@ -409,12 +409,906 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
         view?.friday1?.text = (dayOfMonth - 2).toString()
         view?.saturday1?.text = (dayOfMonth - 1).toString()
         view?.sunday1?.text = (dayOfMonth).toString()
+        }
+
+        if (dayOfWeek == 2) {
+            if (dayOfMonth == 26) {
+                if (month%2 == 1){ //month%2 == 1 ნიშნავს რო 31 ით მთავრდება თვე
+                    view?.monday1?.text = dayOfMonth.toString()
+                    view?.tuesday1?.text = (dayOfMonth + 1).toString()
+                    view?.wednesday1?.text = (dayOfMonth + 2).toString()
+                    view?.thursday1?.text = (dayOfMonth + 3).toString()
+                    view?.friday1?.text = (dayOfMonth + 4).toString()
+                    view?.saturday1?.text = (dayOfMonth + 5).toString()
+                    view?.sunday1?.text = (1).toString()
+                }
+                else if (month%2 == 0){ // month%2 == 0 ნიშნავს რო 30 ით მთავრდება თვე
+
+                    view?.monday1?.text = dayOfMonth.toString()
+                    view?.tuesday1?.text = (dayOfMonth + 1).toString()
+                    view?.wednesday1?.text = (dayOfMonth + 2).toString()
+                    view?.thursday1?.text = (dayOfMonth + 3).toString()
+                    view?.friday1?.text = (dayOfMonth + 4).toString()
+                    view?.saturday1?.text = (1).toString()
+                    view?.sunday1?.text = (2).toString()
+                }
+            }
+            else if (dayOfMonth == 27) {
+                if (month%2 == 1){
+
+                    view?.monday1?.text = dayOfMonth.toString()
+                    view?.tuesday1?.text = (dayOfMonth + 1).toString()
+                    view?.wednesday1?.text = (dayOfMonth + 2).toString()
+                    view?.thursday1?.text = (dayOfMonth + 3).toString()
+                    view?.friday1?.text = (dayOfMonth + 4).toString()
+                    view?.saturday1?.text = (1).toString()
+                    view?.sunday1?.text = (2).toString()
+                }
+                else if (month%2 == 0){
+
+                    view?.monday1?.text = dayOfMonth.toString()
+                    view?.tuesday1?.text = (dayOfMonth + 1).toString()
+                    view?.wednesday1?.text = (dayOfMonth + 2).toString()
+                    view?.thursday1?.text = (dayOfMonth + 3).toString()
+                    view?.friday1?.text = (1).toString()
+                    view?.saturday1?.text = (2).toString()
+                    view?.sunday1?.text = (3).toString()
+                }
+            }
+            else if (dayOfMonth == 28){
+                    if (month%2 == 0){
+
+                        view?.monday1?.text = dayOfMonth.toString()
+                        view?.tuesday1?.text = (dayOfMonth + 1).toString()
+                        view?.wednesday1?.text = (dayOfMonth + 2).toString()
+                        view?.thursday1?.text = (1).toString()
+                        view?.friday1?.text = (2).toString()
+                        view?.saturday1?.text = (3).toString()
+                        view?.sunday1?.text = (4).toString()
+                    }
+                else if (month%2 == 1){
+
+                        view?.monday1?.text = dayOfMonth.toString()
+                        view?.tuesday1?.text = (dayOfMonth + 1).toString()
+                        view?.wednesday1?.text = (dayOfMonth + 2).toString()
+                        view?.thursday1?.text = (dayOfMonth + 3).toString()
+                        view?.friday1?.text = (1).toString()
+                        view?.saturday1?.text = (2).toString()
+                        view?.sunday1?.text = (3).toString()
+                    }
+            }
+            else if (dayOfMonth == 29) {
+                if (month % 2 == 0) {
+                    view?.monday1?.text = dayOfMonth.toString()
+                    view?.tuesday1?.text = (dayOfMonth + 1).toString()
+                    view?.wednesday1?.text = (1).toString()
+                    view?.thursday1?.text = (2).toString()
+                    view?.friday1?.text = (3).toString()
+                    view?.saturday1?.text = (4).toString()
+                    view?.sunday1?.text = (5).toString()
+                }
+                if (month % 2 == 1) {
+                    view?.monday1?.text = dayOfMonth.toString()
+                    view?.tuesday1?.text = (dayOfMonth + 1).toString()
+                    view?.wednesday1?.text = (31).toString()
+                    view?.thursday1?.text = (1).toString()
+                    view?.friday1?.text = (2).toString()
+                    view?.saturday1?.text = (3).toString()
+                    view?.sunday1?.text = (4).toString()
+                }
+            }
+            else if (dayOfMonth == 30){
+                if (month%2==0){
+                    view?.monday1?.text = dayOfMonth.toString()
+                    view?.tuesday1?.text = (1).toString()
+                    view?.wednesday1?.text = (2).toString()
+                    view?.thursday1?.text = (3).toString()
+                    view?.friday1?.text = (4).toString()
+                    view?.saturday1?.text = (5).toString()
+                    view?.sunday1?.text = (6).toString()
+                }
+                if (month % 2 == 1) {
+                    view?.monday1?.text = dayOfMonth.toString()
+                    view?.tuesday1?.text = (dayOfMonth + 1).toString()
+                    view?.wednesday1?.text = (1).toString()
+                    view?.thursday1?.text = (2).toString()
+                    view?.friday1?.text = (3).toString()
+                    view?.saturday1?.text = (4).toString()
+                    view?.sunday1?.text = (5).toString()
+                }
+            }
+            else if (dayOfMonth == 31){
+                view?.monday1?.text = dayOfMonth.toString()
+                view?.tuesday1?.text = (1).toString()
+                view?.wednesday1?.text = (2).toString()
+                view?.thursday1?.text = (3).toString()
+                view?.friday1?.text = (4).toString()
+                view?.saturday1?.text = (5).toString()
+                view?.sunday1?.text = (6).toString()
+            }
+        }
+
+    if (dayOfWeek == 3){
+        if (dayOfMonth == 26){
+            if (month%2 == 1){
+
+                view?.monday1?.text = (dayOfMonth-1).toString()
+                view?.tuesday1?.text = (dayOfMonth).toString()
+                view?.wednesday1?.text = (dayOfMonth + 1).toString()
+                view?.thursday1?.text = (dayOfMonth + 2).toString()
+                view?.friday1?.text = (dayOfMonth + 3).toString()
+                view?.saturday1?.text = (30).toString()
+                view?.sunday1?.text = (31).toString()
+            }
+            else if (month%2 == 0){
+
+                view?.monday1?.text = (dayOfMonth-1).toString()
+                view?.tuesday1?.text = (dayOfMonth ).toString()
+                view?.wednesday1?.text = (dayOfMonth + 1).toString()
+                view?.thursday1?.text = (dayOfMonth + 2).toString()
+                view?.friday1?.text = (29).toString()
+                view?.saturday1?.text = (30).toString()
+                view?.sunday1?.text = (1).toString()
+            }
+        }
+        else if (dayOfMonth == 27){
+            if (month%2 == 1){
+                view?.monday1?.text = (dayOfMonth-1).toString()
+                view?.tuesday1?.text = (dayOfMonth).toString()
+                view?.wednesday1?.text = (dayOfMonth + 1).toString()
+                view?.thursday1?.text = (dayOfMonth + 2).toString()
+                view?.friday1?.text = (dayOfMonth + 3).toString()
+                view?.saturday1?.text = (31).toString()
+                view?.sunday1?.text = (1).toString()
+            }
+            else if (month%2 == 0){
+                view?.monday1?.text = (dayOfMonth-1).toString()
+                view?.tuesday1?.text = (dayOfMonth).toString()
+                view?.wednesday1?.text = (dayOfMonth + 1).toString()
+                view?.thursday1?.text = (dayOfMonth + 2).toString()
+                view?.friday1?.text = (30).toString()
+                view?.saturday1?.text = (1).toString()
+                view?.sunday1?.text = (2).toString()
+            }
+        }
+        else if (dayOfMonth == 28){
+            if (month%2 == 1){
+
+                view?.monday1?.text = (dayOfMonth-1).toString()
+                view?.tuesday1?.text = (dayOfMonth).toString()
+                view?.wednesday1?.text = (dayOfMonth + 1).toString()
+                view?.thursday1?.text = (dayOfMonth + 2).toString()
+                view?.friday1?.text = (dayOfMonth + 3).toString()
+                view?.saturday1?.text = (1).toString()
+                view?.sunday1?.text = (2).toString()
+            }
+            else if (month%2 == 0){
+
+                view?.monday1?.text = (dayOfMonth-1).toString()
+                view?.tuesday1?.text = (dayOfMonth ).toString()
+                view?.wednesday1?.text = (dayOfMonth + 1).toString()
+                view?.thursday1?.text = (dayOfMonth + 2).toString()
+                view?.friday1?.text = (1).toString()
+                view?.saturday1?.text = (2).toString()
+                view?.sunday1?.text = (3).toString()
+            }
+        }
+        else if (dayOfMonth == 29){
+            if (month%2 == 1){
+
+                view?.monday1?.text = (dayOfMonth-1).toString()
+                view?.tuesday1?.text = (dayOfMonth).toString()
+                view?.wednesday1?.text = (dayOfMonth + 1).toString()
+                view?.thursday1?.text = (dayOfMonth + 2).toString()
+                view?.friday1?.text = (1).toString()
+                view?.saturday1?.text = (2).toString()
+                view?.sunday1?.text = (3).toString()
+            }
+            else if (month%2 == 0){
+
+                view?.monday1?.text = (dayOfMonth-1).toString()
+                view?.tuesday1?.text = (dayOfMonth ).toString()
+                view?.wednesday1?.text = (dayOfMonth + 1).toString()
+                view?.thursday1?.text = (1).toString()
+                view?.friday1?.text = (2).toString()
+                view?.saturday1?.text = (3).toString()
+                view?.sunday1?.text = (4).toString()
+            }
+        }
+        else if (dayOfMonth == 30){
+            if (month%2 == 1){
+                view?.monday1?.text = (dayOfMonth-1).toString()
+                view?.tuesday1?.text = (dayOfMonth).toString()
+                view?.wednesday1?.text = (dayOfMonth + 1).toString()
+                view?.thursday1?.text = (1).toString()
+                view?.friday1?.text = (2).toString()
+                view?.saturday1?.text = (3).toString()
+                view?.sunday1?.text = (3+1).toString()
+            }
+            else if (month%2 == 0){
+                view?.monday1?.text = (dayOfMonth-1).toString()
+                view?.tuesday1?.text = (dayOfMonth ).toString()
+                view?.wednesday1?.text = ( 1).toString()
+                view?.thursday1?.text = ( 2).toString()
+                view?.friday1?.text = (3).toString()
+                view?.saturday1?.text = (4).toString()
+                view?.sunday1?.text = (5).toString()
+            }
+        }
+        else if (dayOfMonth == 31){
+                view?.monday1?.text = (dayOfMonth-1).toString()
+                view?.tuesday1?.text = (dayOfMonth).toString()
+                view?.wednesday1?.text = (1).toString()
+                view?.thursday1?.text = ( 2).toString()
+                view?.friday1?.text = ( 3).toString()
+                view?.saturday1?.text = (4).toString()
+                view?.sunday1?.text = (5).toString()
+        }
     }
+        if (dayOfWeek == 4){
+            if (dayOfMonth == 27){
 
+                    view?.monday1?.text = (dayOfMonth - 2).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 1).toString()
+                    view?.wednesday1?.text = (dayOfMonth ).toString()
+                    view?.thursday1?.text = (dayOfMonth + 1).toString()
+                    view?.friday1?.text = (dayOfMonth + 2).toString()
+                    view?.saturday1?.text = (dayOfMonth + 3).toString()
+                    view?.sunday1?.text = (1).toString()
 
+            }
+            else if (dayOfMonth == 28){
+                if (month%2 == 1){
+                    view?.monday1?.text = (dayOfMonth - 2).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 1).toString()
+                    view?.wednesday1?.text = (dayOfMonth ).toString()
+                    view?.thursday1?.text = (dayOfMonth + 1).toString()
+                    view?.friday1?.text = (dayOfMonth + 2).toString()
+                    view?.saturday1?.text = (dayOfMonth + 3).toString()
+                    view?.sunday1?.text = (1).toString()
+                }
+                else if (month%2 == 0){
+                    view?.monday1?.text = (dayOfMonth - 2).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 1).toString()
+                    view?.wednesday1?.text = (dayOfMonth ).toString()
+                    view?.thursday1?.text = (dayOfMonth + 1).toString()
+                    view?.friday1?.text = (dayOfMonth + 2).toString()
+                    view?.saturday1?.text = (1).toString()
+                    view?.sunday1?.text = (2).toString()
+                }
+            }
+            else if (dayOfMonth == 29) {
+                if (month%2 == 1){
+                    view?.monday1?.text = (dayOfMonth - 2).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 1).toString()
+                    view?.wednesday1?.text = (dayOfMonth ).toString()
+                    view?.thursday1?.text = (dayOfMonth + 1).toString()
+                    view?.friday1?.text = (dayOfMonth + 2).toString()
+                    view?.saturday1?.text = (1).toString()
+                    view?.sunday1?.text = (2).toString()
+                }
+                else if (month%2 == 0){
+                    view?.monday1?.text = (dayOfMonth - 2).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 1).toString()
+                    view?.wednesday1?.text = (dayOfMonth ).toString()
+                    view?.thursday1?.text = (dayOfMonth + 1).toString()
+                    view?.friday1?.text = (1).toString()
+                    view?.saturday1?.text = (2).toString()
+                    view?.sunday1?.text = (3).toString()
+                }
+            }
+            else if (dayOfMonth == 30){
+                if (month%2 == 1){
+                    view?.monday1?.text = (dayOfMonth - 2).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 1).toString()
+                    view?.wednesday1?.text = (dayOfMonth ).toString()
+                    view?.thursday1?.text = (dayOfMonth + 1).toString()
+                    view?.friday1?.text = (1).toString()
+                    view?.saturday1?.text = (2).toString()
+                    view?.sunday1?.text = (3).toString()
+                }
+                else if (month%2 == 0){
+                    view?.monday1?.text = (dayOfMonth - 2).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 1).toString()
+                    view?.wednesday1?.text = (dayOfMonth ).toString()
+                    view?.thursday1?.text = ( 1).toString()
+                    view?.friday1?.text = ( 2).toString()
+                    view?.saturday1?.text = ( 3).toString()
+                    view?.sunday1?.text = (4).toString()
+                }
+            }
+            else if (dayOfMonth == 31) {
 
+                    view?.monday1?.text = (dayOfMonth - 2).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 1).toString()
+                    view?.wednesday1?.text = (dayOfMonth).toString()
+                    view?.thursday1?.text = (1).toString()
+                    view?.friday1?.text = (2).toString()
+                    view?.saturday1?.text = (3).toString()
+                    view?.sunday1?.text = (4).toString()
 
+            }
+        }
+        if (dayOfWeek == 5){
+            if (dayOfMonth == 28){
+                if (month%2 == 0){
+                    view?.monday1?.text = (dayOfMonth - 3).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 2).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 1).toString()
+                    view?.thursday1?.text = (dayOfMonth ).toString()
+                    view?.friday1?.text = (dayOfMonth + 1 ).toString()
+                    view?.saturday1?.text = (dayOfMonth + 2).toString()
+                    view?.sunday1?.text = (1).toString()
+                }
+            }
+            else if (dayOfMonth == 29){
+                if (month%2 == 1){
+                    view?.monday1?.text = (dayOfMonth - 3).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 2).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 1).toString()
+                    view?.thursday1?.text = (dayOfMonth ).toString()
+                    view?.friday1?.text = (dayOfMonth + 1 ).toString()
+                    view?.saturday1?.text = (dayOfMonth + 2).toString()
+                    view?.sunday1?.text = (1).toString()
+                }
+                else if (month%2 == 0){
+                    view?.monday1?.text = (dayOfMonth - 3).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 2).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 1).toString()
+                    view?.thursday1?.text = (dayOfMonth ).toString()
+                    view?.friday1?.text = (dayOfMonth + 1 ).toString()
+                    view?.saturday1?.text = (1).toString()
+                    view?.sunday1?.text = (2).toString()
+                }
+            }
+            else if (dayOfMonth == 30){
+                if (month%2 == 1){
+                    view?.monday1?.text = (dayOfMonth - 3).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 2).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 1).toString()
+                    view?.thursday1?.text = (dayOfMonth ).toString()
+                    view?.friday1?.text = (dayOfMonth + 1 ).toString()
+                    view?.saturday1?.text = (1).toString()
+                    view?.sunday1?.text = (2).toString()
+                }
+                else if (month%2 == 0){
+                    view?.monday1?.text = (dayOfMonth - 3).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 2).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 1).toString()
+                    view?.thursday1?.text = (dayOfMonth ).toString()
+                    view?.friday1?.text = ( 1 ).toString()
+                    view?.saturday1?.text = (2).toString()
+                    view?.sunday1?.text = (3).toString()
+                }
+            }
+            else if (dayOfMonth == 31){
+                if (month%2 == 1) {
+                    view?.monday1?.text = (dayOfMonth - 3).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 2).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 1).toString()
+                    view?.thursday1?.text = (dayOfMonth).toString()
+                    view?.friday1?.text = (1).toString()
+                    view?.saturday1?.text = (2).toString()
+                    view?.sunday1?.text = (3).toString()
+                }
+            }
+        }
+        if (dayOfWeek == 6){
+            if (dayOfMonth == 29) {
+                if (month % 2 == 31) {
+                    view?.monday1?.text = (dayOfMonth - 4).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 3).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 2).toString()
+                    view?.thursday1?.text = (dayOfMonth - 1).toString()
+                    view?.friday1?.text = (dayOfMonth).toString()
+                    view?.saturday1?.text = (dayOfMonth + 1).toString()
+                    view?.sunday1?.text = (dayOfMonth + 2).toString()
+                }
+            }
+            if (dayOfMonth == 30){
+                if (month%2 == 1){
+                    view?.monday1?.text = (dayOfMonth - 4).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 3).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 2).toString()
+                    view?.thursday1?.text = (dayOfMonth - 1).toString()
+                    view?.friday1?.text = (dayOfMonth ).toString()
+                    view?.saturday1?.text = (dayOfMonth + 1).toString()
+                    view?.sunday1?.text = (1).toString()
+                }
+                else if (month%2 == 0){
+                    view?.monday1?.text = (dayOfMonth - 4).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 3).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 2).toString()
+                    view?.thursday1?.text = (dayOfMonth - 1).toString()
+                    view?.friday1?.text = (dayOfMonth ).toString()
+                    view?.saturday1?.text = (1).toString()
+                    view?.sunday1?.text = (2).toString()
+                }
+            }
+            else if (dayOfMonth == 31){
+                view?.monday1?.text = (dayOfMonth - 4).toString()
+                view?.tuesday1?.text = (dayOfMonth - 3).toString()
+                view?.wednesday1?.text = (dayOfMonth - 2).toString()
+                view?.thursday1?.text = (dayOfMonth - 1).toString()
+                view?.friday1?.text = (dayOfMonth ).toString()
+                view?.saturday1?.text = (1).toString()
+                view?.sunday1?.text = (2).toString()
+            }
+        }
+        if (dayOfWeek == 0){
+            if(dayOfMonth == 30) {
+                if (month % 2 == 1) {
+                    view?.monday1?.text = (dayOfMonth - 5).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 4).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 3).toString()
+                    view?.thursday1?.text = (dayOfMonth - 2).toString()
+                    view?.friday1?.text = (dayOfMonth - 1).toString()
+                    view?.saturday1?.text = (dayOfMonth).toString()
+                    view?.sunday1?.text = (31).toString()
+                }
+                else if (month%2 == 0){
+                    view?.monday1?.text = (dayOfMonth - 5).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 4).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 3).toString()
+                    view?.thursday1?.text = (dayOfMonth - 2).toString()
+                    view?.friday1?.text = (dayOfMonth - 1).toString()
+                    view?.saturday1?.text = (dayOfMonth).toString()
+                    view?.sunday1?.text = (1).toString()
+                }
+            }
+            if (dayOfMonth == 31){
+                if (month % 2 == 1) {
+                    view?.monday1?.text = (dayOfMonth - 5).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 4).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 3).toString()
+                    view?.thursday1?.text = (dayOfMonth - 2).toString()
+                    view?.friday1?.text = (dayOfMonth - 1).toString()
+                    view?.saturday1?.text = (dayOfMonth).toString()
+                    view?.sunday1?.text = (1).toString()
+                }
 
+            }
+
+        }
+        if(dayOfWeek == 1){
+            if (dayOfMonth == 1){
+                if (month%2 == 0){
+                    view?.monday1?.text = (25).toString()
+                    view?.tuesday1?.text = (26).toString()
+                    view?.wednesday1?.text = (27).toString()
+                    view?.thursday1?.text = (28).toString()
+                    view?.friday1?.text = (29).toString()
+                    view?.saturday1?.text = (30).toString()
+                    view?.sunday1?.text = (dayOfMonth).toString()
+                }
+                else if (month%2 == 1){
+                    view?.monday1?.text = (26).toString()
+                    view?.tuesday1?.text = (27).toString()
+                    view?.wednesday1?.text = (28).toString()
+                    view?.thursday1?.text = (29).toString()
+                    view?.friday1?.text = (30).toString()
+                    view?.saturday1?.text = (31).toString()
+                    view?.sunday1?.text = (dayOfMonth).toString()
+                }
+            }
+            if (dayOfMonth == 2){
+                if (month%2 == 0){
+                    view?.monday1?.text = (26).toString()
+                    view?.tuesday1?.text = (27).toString()
+                    view?.wednesday1?.text = (28).toString()
+                    view?.thursday1?.text = (29).toString()
+                    view?.friday1?.text = (30).toString()
+                    view?.saturday1?.text = (dayOfMonth - 1).toString()
+                    view?.sunday1?.text = (dayOfMonth).toString()
+                }
+                else if (month%2 == 1){
+                    view?.monday1?.text = (27).toString()
+                    view?.tuesday1?.text = (28).toString()
+                    view?.wednesday1?.text = (29).toString()
+                    view?.thursday1?.text = (30).toString()
+                    view?.friday1?.text = (31).toString()
+                    view?.saturday1?.text = (dayOfMonth-1).toString()
+                    view?.sunday1?.text = (dayOfMonth).toString()
+                }
+            }
+            if (dayOfMonth == 3){
+                if (month%2 == 0){
+                    view?.monday1?.text = (27).toString()
+                    view?.tuesday1?.text = (28).toString()
+                    view?.wednesday1?.text = (29).toString()
+                    view?.thursday1?.text = (30).toString()
+                    view?.friday1?.text = (dayOfMonth -2).toString()
+                    view?.saturday1?.text = (dayOfMonth - 1).toString()
+                    view?.sunday1?.text = (dayOfMonth).toString()
+                }
+                else if (month%2 == 1){
+                    view?.monday1?.text = (28).toString()
+                    view?.tuesday1?.text = (29).toString()
+                    view?.wednesday1?.text = (30).toString()
+                    view?.thursday1?.text = (31).toString()
+                    view?.friday1?.text = (dayOfMonth - 2).toString()
+                    view?.saturday1?.text = (dayOfMonth - 1).toString()
+                    view?.sunday1?.text = (dayOfMonth).toString()
+                }
+            }
+            if (dayOfMonth == 4){
+                if (month%2 == 0){
+                    view?.monday1?.text = (28).toString()
+                    view?.tuesday1?.text = (29).toString()
+                    view?.wednesday1?.text = (30).toString()
+                    view?.thursday1?.text = (dayOfMonth - 3).toString()
+                    view?.friday1?.text = (dayOfMonth - 2).toString()
+                    view?.saturday1?.text = (dayOfMonth -1).toString()
+                    view?.sunday1?.text = (dayOfMonth).toString()
+                }
+                else if (month%2 == 1){
+                    view?.monday1?.text = (29).toString()
+                    view?.tuesday1?.text = (30).toString()
+                    view?.wednesday1?.text = (31).toString()
+                    view?.thursday1?.text = (dayOfMonth - 3).toString()
+                    view?.friday1?.text = (dayOfMonth-2).toString()
+                    view?.saturday1?.text = (dayOfMonth - 1).toString()
+                    view?.sunday1?.text = (dayOfMonth).toString()
+                }
+            }
+            if (dayOfMonth == 5){
+                if (month%2 == 0){
+                    view?.monday1?.text = (29).toString()
+                    view?.tuesday1?.text = (30).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 4).toString()
+                    view?.thursday1?.text = (dayOfMonth - 3).toString()
+                    view?.friday1?.text = (dayOfMonth - 2).toString()
+                    view?.saturday1?.text = (dayOfMonth -1).toString()
+                    view?.sunday1?.text = (dayOfMonth).toString()
+                }
+                else if (month%2 == 1){
+                    view?.monday1?.text = (30).toString()
+                    view?.tuesday1?.text = (31).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 4).toString()
+                    view?.thursday1?.text = (dayOfMonth - 3).toString()
+                    view?.friday1?.text = (dayOfMonth-2).toString()
+                    view?.saturday1?.text = (dayOfMonth - 1).toString()
+                    view?.sunday1?.text = (dayOfMonth).toString()
+                }
+            }
+            if (dayOfMonth == 6){
+                if (month%2 == 0){
+                    view?.monday1?.text = (30).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 5).toString()
+                    view?.wednesday1?.text = (dayOfMonth -4).toString()
+                    view?.thursday1?.text = (dayOfMonth - 3).toString()
+                    view?.friday1?.text = (dayOfMonth - 2).toString()
+                    view?.saturday1?.text = (dayOfMonth -1).toString()
+                    view?.sunday1?.text = (dayOfMonth).toString()
+                }
+                else if (month%2 == 1){
+                    view?.monday1?.text = (31).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 5).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 4).toString()
+                    view?.thursday1?.text = (dayOfMonth - 3).toString()
+                    view?.friday1?.text = (dayOfMonth-2).toString()
+                    view?.saturday1?.text = (dayOfMonth - 1).toString()
+                    view?.sunday1?.text = (dayOfMonth).toString()
+                }
+            }
+
+        }
+        if (dayOfWeek == 0){
+            if (dayOfMonth == 1){
+                if (month%2 == 0){
+                    view?.monday1?.text = (26).toString()
+                    view?.tuesday1?.text = (27).toString()
+                    view?.wednesday1?.text = (28).toString()
+                    view?.thursday1?.text = (29).toString()
+                    view?.friday1?.text = (30).toString()
+                    view?.saturday1?.text = (dayOfMonth).toString()
+                    view?.sunday1?.text = (dayOfMonth + 1).toString()
+                }
+                else if (month%2 == 1){
+                    view?.monday1?.text = (27).toString()
+                    view?.tuesday1?.text = (28).toString()
+                    view?.wednesday1?.text = (29).toString()
+                    view?.thursday1?.text = (30).toString()
+                    view?.friday1?.text = (31).toString()
+                    view?.saturday1?.text = (dayOfMonth).toString()
+                    view?.sunday1?.text = (dayOfMonth + 1).toString()
+                }
+            }
+            if (dayOfMonth == 2){
+                if (month%2 == 0){
+                    view?.monday1?.text = (27).toString()
+                    view?.tuesday1?.text = (28).toString()
+                    view?.wednesday1?.text = (29).toString()
+                    view?.thursday1?.text = (30).toString()
+                    view?.friday1?.text = (dayOfMonth - 1).toString()
+                    view?.saturday1?.text = (dayOfMonth).toString()
+                    view?.sunday1?.text = (dayOfMonth + 1).toString()
+                }
+                else if (month%2 == 1){
+                    view?.monday1?.text = (28).toString()
+                    view?.tuesday1?.text = (29).toString()
+                    view?.wednesday1?.text = (30).toString()
+                    view?.thursday1?.text = (31).toString()
+                    view?.friday1?.text = (dayOfMonth - 1).toString()
+                    view?.saturday1?.text = (dayOfMonth).toString()
+                    view?.sunday1?.text = (dayOfMonth + 1).toString()
+                }
+            }
+            if (dayOfMonth == 3){
+                if (month%2 == 0){
+                    view?.monday1?.text = (28).toString()
+                    view?.tuesday1?.text = (29).toString()
+                    view?.wednesday1?.text = (30).toString()
+                    view?.thursday1?.text = (dayOfMonth -2).toString()
+                    view?.friday1?.text = (dayOfMonth - 1).toString()
+                    view?.saturday1?.text = (dayOfMonth).toString()
+                    view?.sunday1?.text = (dayOfMonth + 1).toString()
+                }
+                else if (month%2 == 1){
+                    view?.monday1?.text = (29).toString()
+                    view?.tuesday1?.text = (30).toString()
+                    view?.wednesday1?.text = (31).toString()
+                    view?.thursday1?.text = (dayOfMonth - 2).toString()
+                    view?.friday1?.text = (dayOfMonth - 1).toString()
+                    view?.saturday1?.text = (dayOfMonth).toString()
+                    view?.sunday1?.text = (dayOfMonth + 1).toString()
+                }
+            }
+            if (dayOfMonth == 4){
+                if (month%2 == 0){
+                    view?.monday1?.text = (29).toString()
+                    view?.tuesday1?.text = (30).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 3).toString()
+                    view?.thursday1?.text = (dayOfMonth - 2).toString()
+                    view?.friday1?.text = (dayOfMonth - 1).toString()
+                    view?.saturday1?.text = (dayOfMonth).toString()
+                    view?.sunday1?.text = (dayOfMonth + 1).toString()
+                }
+                else if (month%2 == 1){
+                    view?.monday1?.text = (30).toString()
+                    view?.tuesday1?.text = (31).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 3).toString()
+                    view?.thursday1?.text = (dayOfMonth -2).toString()
+                    view?.friday1?.text = (dayOfMonth - 1).toString()
+                    view?.saturday1?.text = (dayOfMonth).toString()
+                    view?.sunday1?.text = (dayOfMonth + 1).toString()
+                }
+            }
+            if (dayOfMonth == 5){
+                if (month%2 == 0){
+                    view?.monday1?.text = (30).toString()
+                    view?.tuesday1?.text = (dayOfMonth -4).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 3).toString()
+                    view?.thursday1?.text = (dayOfMonth - 2).toString()
+                    view?.friday1?.text = (dayOfMonth - 1).toString()
+                    view?.saturday1?.text = (dayOfMonth).toString()
+                    view?.sunday1?.text = (dayOfMonth + 1).toString()
+                }
+                else if (month%2 == 1){
+                    view?.monday1?.text = (31).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 4).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 3).toString()
+                    view?.thursday1?.text = (dayOfMonth -2).toString()
+                    view?.friday1?.text = (dayOfMonth - 1).toString()
+                    view?.saturday1?.text = (dayOfMonth).toString()
+                    view?.sunday1?.text = (dayOfMonth + 1).toString()
+                }
+            }
+
+        }
+        if(dayOfWeek == 6){
+            if (dayOfMonth == 1){
+                if (month%2 == 0){
+                    view?.monday1?.text = (27).toString()
+                    view?.tuesday1?.text = (28).toString()
+                    view?.wednesday1?.text = (29).toString()
+                    view?.thursday1?.text = (30).toString()
+                    view?.friday1?.text = (dayOfMonth).toString()
+                    view?.saturday1?.text = (dayOfMonth + 1).toString()
+                    view?.sunday1?.text = (dayOfMonth + 2).toString()
+                }
+                else if (month%2 == 1){
+                    view?.monday1?.text = (28).toString()
+                    view?.tuesday1?.text = (29).toString()
+                    view?.wednesday1?.text = (30).toString()
+                    view?.thursday1?.text = (31).toString()
+                    view?.friday1?.text = (dayOfMonth ).toString()
+                    view?.saturday1?.text = (dayOfMonth + 1).toString()
+                    view?.sunday1?.text = (dayOfMonth + 2).toString()
+                }
+            }
+            if (dayOfMonth == 2){
+                if (month%2 == 0){
+                    view?.monday1?.text = (28).toString()
+                    view?.tuesday1?.text = (29).toString()
+                    view?.wednesday1?.text = (30).toString()
+                    view?.thursday1?.text = (dayOfMonth - 1).toString()
+                    view?.friday1?.text = (dayOfMonth).toString()
+                    view?.saturday1?.text = (dayOfMonth + 1).toString()
+                    view?.sunday1?.text = (dayOfMonth + 2).toString()
+                }
+                else if (month%2 == 1){
+                    view?.monday1?.text = (29).toString()
+                    view?.tuesday1?.text = (30).toString()
+                    view?.wednesday1?.text = (31).toString()
+                    view?.thursday1?.text = (dayOfMonth - 1).toString()
+                    view?.friday1?.text = (dayOfMonth ).toString()
+                    view?.saturday1?.text = (dayOfMonth + 1).toString()
+                    view?.sunday1?.text = (dayOfMonth + 2).toString()
+                }
+            }
+            if(dayOfMonth == 3){
+                if (month%2 == 0){
+                    view?.monday1?.text = (29).toString()
+                    view?.tuesday1?.text = (30).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 2).toString()
+                    view?.thursday1?.text = (dayOfMonth - 1).toString()
+                    view?.friday1?.text = (dayOfMonth).toString()
+                    view?.saturday1?.text = (dayOfMonth + 1).toString()
+                    view?.sunday1?.text = (dayOfMonth + 2).toString()
+                }
+                else if (month%2 == 1){
+                    view?.monday1?.text = (30).toString()
+                    view?.tuesday1?.text = (31).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 2).toString()
+                    view?.thursday1?.text = (dayOfMonth - 1).toString()
+                    view?.friday1?.text = (dayOfMonth ).toString()
+                    view?.saturday1?.text = (dayOfMonth + 1).toString()
+                    view?.sunday1?.text = (dayOfMonth + 2).toString()
+                }
+            }
+            if (dayOfMonth == 4){
+                if (month%2 == 0){
+                    view?.monday1?.text = (30).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 3).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 2).toString()
+                    view?.thursday1?.text = (dayOfMonth - 1).toString()
+                    view?.friday1?.text = (dayOfMonth).toString()
+                    view?.saturday1?.text = (dayOfMonth + 1).toString()
+                    view?.sunday1?.text = (dayOfMonth + 2).toString()
+                }
+                else if (month%2 == 1){
+                    view?.monday1?.text = (31).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 3).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 2).toString()
+                    view?.thursday1?.text = (dayOfMonth - 1).toString()
+                    view?.friday1?.text = (dayOfMonth ).toString()
+                    view?.saturday1?.text = (dayOfMonth + 1).toString()
+                    view?.sunday1?.text = (dayOfMonth + 2).toString()
+                }
+            }
+
+        }
+        if (dayOfWeek == 5){
+            if(dayOfMonth == 1){
+                if (month%2 == 1){
+                    view?.monday1?.text = (29).toString()
+                    view?.tuesday1?.text = (30).toString()
+                    view?.wednesday1?.text = (31).toString()
+                    view?.thursday1?.text = (dayOfMonth ).toString()
+                    view?.friday1?.text = (dayOfMonth + 1 ).toString()
+                    view?.saturday1?.text = (dayOfMonth + 2).toString()
+                    view?.sunday1?.text = (dayOfMonth + 3).toString()
+                }
+                if (month%2 == 0){
+                    view?.monday1?.text = (28).toString()
+                    view?.tuesday1?.text = (29).toString()
+                    view?.wednesday1?.text = (30).toString()
+                    view?.thursday1?.text = (dayOfMonth ).toString()
+                    view?.friday1?.text = (dayOfMonth + 1 ).toString()
+                    view?.saturday1?.text = (dayOfMonth + 2).toString()
+                    view?.sunday1?.text = (dayOfMonth + 3).toString()
+                }
+            }
+            else if(dayOfMonth == 2){
+
+                    if (month%2 == 1){
+                        view?.monday1?.text = (30).toString()
+                        view?.tuesday1?.text = (31).toString()
+                        view?.wednesday1?.text = (dayOfMonth - 1).toString()
+                        view?.thursday1?.text = (dayOfMonth ).toString()
+                        view?.friday1?.text = (dayOfMonth + 1 ).toString()
+                        view?.saturday1?.text = (dayOfMonth + 2).toString()
+                        view?.sunday1?.text = (dayOfMonth + 3).toString()
+                    }
+                    if (month%2 == 0){
+                        view?.monday1?.text = (29).toString()
+                        view?.tuesday1?.text = (30).toString()
+                        view?.wednesday1?.text = (dayOfMonth - 1).toString()
+                        view?.thursday1?.text = (dayOfMonth ).toString()
+                        view?.friday1?.text = (dayOfMonth + 1 ).toString()
+                        view?.saturday1?.text = (dayOfMonth + 2).toString()
+                        view?.sunday1?.text = (dayOfMonth + 3).toString()
+                    }
+            }
+            else if (dayOfMonth == 3){
+
+                if (month%2 == 1){
+                    view?.monday1?.text = (31).toString()
+                    view?.tuesday1?.text = (dayOfMonth -2).toString()
+                    view?.wednesday1?.text = (dayOfMonth -1).toString()
+                    view?.thursday1?.text = (dayOfMonth ).toString()
+                    view?.friday1?.text = (dayOfMonth + 1 ).toString()
+                    view?.saturday1?.text = (dayOfMonth + 2).toString()
+                    view?.sunday1?.text = (dayOfMonth + 3).toString()
+                }
+                if (month%2 == 0){
+                    view?.monday1?.text = (30).toString()
+                    view?.tuesday1?.text = (dayOfMonth -2).toString()
+                    view?.wednesday1?.text = (dayOfMonth - 1).toString()
+                    view?.thursday1?.text = (dayOfMonth ).toString()
+                    view?.friday1?.text = (dayOfMonth + 1 ).toString()
+                    view?.saturday1?.text = (dayOfMonth + 2).toString()
+                    view?.sunday1?.text = (dayOfMonth + 3).toString()
+                }
+            }
+
+        }
+        if (dayOfWeek ==4){
+            if (dayOfMonth == 1){
+                if (month%2 == 1){
+                    view?.monday1?.text = (30).toString()
+                    view?.tuesday1?.text = (31).toString()
+                    view?.wednesday1?.text = (dayOfMonth ).toString()
+                    view?.thursday1?.text = (dayOfMonth + 1).toString()
+                    view?.friday1?.text = (dayOfMonth + 2).toString()
+                    view?.saturday1?.text = (dayOfMonth + 3).toString()
+                    view?.sunday1?.text = (dayOfMonth + 4).toString()
+                }
+                else if (month%2 == 0){
+                    view?.monday1?.text = (29).toString()
+                    view?.tuesday1?.text = (30).toString()
+                    view?.wednesday1?.text = (dayOfMonth ).toString()
+                    view?.thursday1?.text = (dayOfMonth + 1).toString()
+                    view?.friday1?.text = (dayOfMonth + 2).toString()
+                    view?.saturday1?.text = (dayOfMonth + 3).toString()
+                    view?.sunday1?.text = (dayOfMonth + 4).toString()
+                }
+            }
+            else  if (dayOfMonth == 2){
+                if (month%2 == 1){
+                    view?.monday1?.text = (31).toString()
+                    view?.tuesday1?.text = (dayOfMonth -1).toString()
+                    view?.wednesday1?.text = (dayOfMonth ).toString()
+                    view?.thursday1?.text = (dayOfMonth + 1).toString()
+                    view?.friday1?.text = (dayOfMonth + 2).toString()
+                    view?.saturday1?.text = (dayOfMonth + 3).toString()
+                    view?.sunday1?.text = (dayOfMonth + 4).toString()
+                }
+                else if (month%2 == 0){
+                    view?.monday1?.text = (30).toString()
+                    view?.tuesday1?.text = (dayOfMonth - 1).toString()
+                    view?.wednesday1?.text = (dayOfMonth ).toString()
+                    view?.thursday1?.text = (dayOfMonth + 1).toString()
+                    view?.friday1?.text = (dayOfMonth + 2).toString()
+                    view?.saturday1?.text = (dayOfMonth + 3).toString()
+                    view?.sunday1?.text = (dayOfMonth + 4).toString()
+                }
+            }
+        }
+
+        if (dayOfWeek == 3){
+            if (dayOfMonth == 1){
+                if (month%2 == 1){
+                    view?.monday1?.text = (31).toString()
+                    view?.tuesday1?.text = (dayOfMonth).toString()
+                    view?.wednesday1?.text = (dayOfMonth + 1).toString()
+                    view?.thursday1?.text = (dayOfMonth + 2).toString()
+                    view?.friday1?.text = (dayOfMonth + 3).toString()
+                    view?.saturday1?.text = (dayOfMonth + 4).toString()
+                    view?.sunday1?.text = (dayOfMonth + 5).toString()
+                }
+                else if (month%2 == 0){
+                    view?.monday1?.text = (30).toString()
+                    view?.tuesday1?.text = (dayOfMonth).toString()
+                    view?.wednesday1?.text = (dayOfMonth + 1).toString()
+                    view?.thursday1?.text = (dayOfMonth + 2).toString()
+                    view?.friday1?.text = (dayOfMonth + 3).toString()
+                    view?.saturday1?.text = (dayOfMonth + 4).toString()
+                    view?.sunday1?.text = (dayOfMonth + 5).toString()
+                }
+            }
+        }
 
 
     if (month == 0) {
@@ -457,453 +1351,6 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
 
 }
 
-    private fun setDatee(){
-        val c = Calendar.getInstance()
-        val month = c.get(Calendar.MONTH)
-        val year = c.get(Calendar.YEAR)
-
-
-        val dayOfWeek = c.get(Calendar.DAY_OF_WEEK)
-        val dayOfMonth = c.get(Calendar.DAY_OF_MONTH)
-
-        monday1.text = (dayOfMonth - 2).toString()
-        tuesday1.text = (dayOfMonth - 1).toString()
-        wednesday1.text = dayOfMonth.toString()
-        thursday1.text = (dayOfMonth + 1) . toString()
-        friday1.text = (dayOfMonth + 2).toString()
-        saturday1.text = (dayOfMonth + 3).toString()
-        sunday1.text = (dayOfMonth + 4).toString()
-        // 0- jan , 1 - feb , 2 march , 3 april , 4 may , 5 june , 6 jule , 7 , august , 8 sept , 9 octo , 10 nov , 11 dec
-
-        if (dayOfMonth == 1 && month == 0  )  {
-            monday1.text = "30"
-            tuesday1.text = "31"
-        }
-        else if (dayOfMonth == 1 && month == 2  )  {
-            monday1.text = "27"
-            tuesday1.text = "28"
-        }
-
-        else if (dayOfMonth == 1 && month == 4  )  {
-            monday1.text = "29"
-            tuesday1.text = "30"
-        }
-
-        else if (dayOfMonth == 1 && month == 6  )  {
-            monday1.text = "29"
-            tuesday1.text = "30"
-        }
-
-        else if (dayOfMonth == 1 && month == 7  )  {
-            monday1.text = "30"
-            tuesday1.text = "31"
-        }
-
-        else if (dayOfMonth == 1 && month == 9  )  {
-            monday1.text = "29"
-            tuesday1.text = "30"
-        }
-
-        else if (dayOfMonth == 1 && month == 11 )  {
-            monday1.text = "29"
-            tuesday1.text = "30"
-        }
-        else if (dayOfMonth == 2 && month == 0  )  {
-            monday1.text = "31"
-            tuesday1.text = "1"
-        }
-        // 0- jan 31 , 1 - feb 28 , 2 march 31 , 3 april 30 , 4 may 31  , 5 june 30 , 6 jule 31 , 7 august 31 , 8 sept 30 , 9 octo 31 , 10 nov 30, 11 dec 31
-        else if (dayOfMonth == 2 && month == 2  )  {
-            monday1.text = "28"
-            tuesday1.text = "1"
-        }
-
-        else if (dayOfMonth == 2 && month == 4  )  {
-            monday1.text = "30"
-            tuesday1.text = "1"
-        }
-
-        else if (dayOfMonth == 2 && month == 6  )  {
-            monday1.text = "30"
-            tuesday1.text = "1"
-        }
-
-        else if (dayOfMonth == 2 && month == 7  )  {
-            monday1.text = "31"
-            tuesday1.text = "1"
-        }
-
-        else if (dayOfMonth == 2 && month == 9  )  {
-            monday1.text = "30"
-            tuesday1.text = "1"
-        }
-
-        else if (dayOfMonth == 2 && month == 11  )  {
-            monday1.text = "30"
-            tuesday1.text = "1"
-        }
-        // 0- jan 31 , 1 - feb 28 , 2 march 31 , 3 april 30 , 4 may 31  , 5 june 30 , 6 jule 31 , 7 august 31 , 8 sept 30 , 9 octo 31 , 10 nov 30, 11 dec 31
-
-        else if (dayOfMonth == 1 && month == 1){
-            tuesday1.text = "31"
-            monday1.text = "30"
-        }
-        else if (dayOfMonth == 2 && month == 1){
-            tuesday1.text = "1"
-            monday1.text = "31"
-        }
-        else if (dayOfMonth == 1 && month == 3){
-            tuesday1.text = "31"
-            monday1.text = "30"
-        }
-        else if (dayOfMonth == 1 && month == 5){
-            tuesday1.text = "31"
-            monday1.text = "30"
-        }
-        else if (dayOfMonth == 1 && month == 8){
-            tuesday1.text = "31"
-            monday1.text = "30"
-        }
-        else if (dayOfMonth == 1 && month == 10){
-            tuesday1.text = "31"
-            monday1.text = "30"
-        }
-        else if (dayOfMonth == 2 && month == 3){
-            tuesday1.text = "1"
-            monday1.text = "31"
-        }
-        else if (dayOfMonth == 2 && month == 5){
-            tuesday1.text = "1"
-            monday1.text = "31"
-        }
-        else if (dayOfMonth == 2 && month == 8){
-            tuesday1.text = "1"
-            monday1.text = "31"
-        }
-        else if (dayOfMonth == 2 && month == 10){
-            tuesday1.text = "1"
-            monday1.text = "31"
-        }
-        // 0- jan 31 , 1 - feb 28 , 2 march 31 , 3 april 30 , 4 may 31  , 5 june 30 , 6 jule 31 , 7 august 31 , 8 sept 30 , 9 octo 31 , 10 nov 30, 11 dec 31
-
-        else if (dayOfMonth == 28 && month == 0) {
-            sunday1.text = "1"
-        }
-
-        else if (dayOfMonth == 28 && month == 2 ) {
-            sunday1.text = "1"
-        }
-
-        else if (dayOfMonth == 28 && month == 4) {
-            sunday1.text = "1"
-        }
-
-        else if (dayOfMonth == 28 && month == 6) {
-            sunday1.text = "1"
-        }
-
-        else if (dayOfMonth == 28 && month == 7) {
-            sunday1.text = "1"
-        }
-
-        else if (dayOfMonth == 28 && month == 9) {
-            sunday1.text = "1"
-        }
-
-        else if (dayOfMonth == 28 && month == 11) {
-            sunday1.text = "1"
-        }
-        // 0- jan 31 , 1 - feb 28 , 2 march 31 , 3 april 30 , 4 may 31  , 5 june 30 , 6 jule 31 , 7 august 31 , 8 sept 30 , 9 octo 31 , 10 nov 30, 11 dec 31
-
-        else if (dayOfMonth == 29 && month == 0) {
-            sunday1.text = "2"
-            saturday1.text = "1"
-        }
-        else if (dayOfMonth == 29 && month == 2) {
-            sunday1.text = "2"
-            saturday1.text = "1"
-        }
-        else if (dayOfMonth == 29 && month == 4) {
-            sunday1.text = "2"
-            saturday1.text = "1"
-        }
-        else if (dayOfMonth == 29 && month == 6) {
-            sunday1.text = "2"
-            saturday1.text = "1"
-        }
-        else if (dayOfMonth == 29 && month == 7) {
-            sunday1.text = "2"
-            saturday1.text = "1"
-        }
-        else if (dayOfMonth == 29 && month == 9) {
-            sunday1.text = "2"
-            saturday1.text = "1"
-        }
-        else if (dayOfMonth == 29 && month == 11) {
-            sunday1.text = "2"
-            saturday1.text = "1"
-        }
-        else if (dayOfMonth == 30 && month == 0) {
-
-            sunday1.text = "3"
-            saturday1.text = "2"
-            friday1.text = "1"
-        }
-
-        else if (dayOfMonth == 30 && month == 2) {
-
-            sunday1.text = "3"
-            saturday1.text = "2"
-            friday1.text = "1"
-        }
-
-        else if (dayOfMonth == 30 && month == 4) {
-
-            sunday1.text = "3"
-            saturday1.text = "2"
-            friday1.text = "1"
-        }
-
-        else if (dayOfMonth == 30 && month == 6) {
-
-            sunday1.text = "3"
-            saturday1.text = "2"
-            friday1.text = "1"
-        }
-        else if (dayOfMonth == 30 && month == 7) {
-            sunday1.text = "3"
-            saturday1.text = "2"
-            friday1.text = "1"
-        }
-        else if (dayOfMonth == 30 && month == 9) {
-            sunday1.text = "3"
-            saturday1.text = "2"
-            friday1.text = "1"
-        }
-        else if (dayOfMonth == 30 && month == 11) {
-            sunday1.text = "3"
-            saturday1.text = "2"
-            friday1.text = "1"
-        }
-        else if (dayOfMonth == 31 && month == 0) {
-            sunday1.text = "4"
-            saturday1.text = "3"
-            friday1.text = "2"
-            thursday1.text = "1"
-        }
-        else if (dayOfMonth == 31 && month == 2) {
-            sunday1.text = "4"
-            saturday1.text = "3"
-            friday1.text = "2"
-            thursday1.text = "1"
-        }
-        else if (dayOfMonth == 31 && month == 4) {
-            sunday1.text = "4"
-            saturday1.text = "3"
-            friday1.text = "2"
-            thursday1.text = "1"
-        }
-        else if (dayOfMonth == 31 && month == 6) {
-            sunday1.text = "4"
-            saturday1.text = "3"
-            friday1.text = "2"
-            thursday1.text = "1"
-        }
-        else if (dayOfMonth == 31 && month == 7) {
-            sunday1.text = "4"
-            saturday1.text = "3"
-            friday1.text = "2"
-            thursday1.text = "1"
-        }
-        else if (dayOfMonth == 31 && month == 9) {
-            sunday1.text = "4"
-            saturday1.text = "3"
-            friday1.text = "2"
-            thursday1.text = "1"
-        }
-        else if (dayOfMonth == 31 && month == 11) {
-            sunday1.text = "4"
-            saturday1.text = "3"
-            friday1.text = "2"
-            thursday1.text = "1"
-        }
-        // 0- jan 31 , 1 - feb 28 , 2 march 31 , 3 april 30 , 4 may 31  , 5 june 30 , 6 jule 31 , 7 august 31 , 8 sept 30 , 9 octo 31 , 10 nov 30, 11 dec 31
-
-        else if (dayOfMonth == 27 && month == 3) {
-            sunday1.text = "1"
-        }
-        else if (dayOfMonth == 27 && month == 5) {
-            sunday1.text = "1"
-        }
-        else if (dayOfMonth == 27 && month == 8) {
-            sunday1.text = "1"
-        }
-        else if (dayOfMonth == 27 && month == 10) {
-            sunday1.text = "1"
-        }
-        else if (dayOfMonth == 28 && month == 3) {
-            sunday1.text = "2"
-            saturday1.text = "1"
-        }
-        else if (dayOfMonth == 28 && month == 5) {
-            sunday1.text = "2"
-            saturday1.text = "1"
-        }
-        else if (dayOfMonth == 28 && month == 8) {
-            sunday1.text = "2"
-            saturday1.text = "1"
-        }
-        else if (dayOfMonth == 28 && month == 10) {
-            sunday1.text = "2"
-            saturday1.text = "1"
-        }
-        else if (dayOfMonth == 29 && month == 3) {
-            sunday1.text = "3"
-            saturday1.text = "2"
-            friday1.text = "1"
-        }
-        else if (dayOfMonth == 29 && month == 5) {
-            sunday1.text = "3"
-            saturday1.text = "2"
-            friday1.text = "1"
-        }
-        else if (dayOfMonth == 29 && month == 8) {
-            sunday1.text = "3"
-            saturday1.text = "2"
-            friday1.text = "1"
-        }
-        else if (dayOfMonth == 29 && month == 10) {
-            sunday1.text = "3"
-            saturday1.text = "2"
-            friday1.text = "1"
-        }
-        else if (dayOfMonth == 30 && month == 3) {
-            sunday1.text = "4"
-            saturday1.text = "3"
-            friday1.text = "2"
-            thursday1.text = "1"
-        }
-        else if (dayOfMonth == 30 && month == 5) {
-            sunday1.text = "4"
-            saturday1.text = "3"
-            friday1.text = "2"
-            thursday1.text = "1"
-        }
-        else if (dayOfMonth == 30 && month == 8) {
-            sunday1.text = "4"
-            saturday1.text = "3"
-            friday1.text = "2"
-            thursday1.text = "1"
-        }
-        else if (dayOfMonth == 30 && month == 10) {
-            sunday1.text = "4"
-            saturday1.text = "3"
-            friday1.text = "2"
-            thursday1.text = "1"
-        }
-        else if(dayOfMonth == 28 && month == 1){
-            sunday1.text = "4"
-            saturday1.text = "3"
-            friday1.text = "2"
-            thursday1.text = "1"
-        }
-        if (dayOfWeek == 0) {
-                Monday1.text = "T"
-                monday21.text = "F"
-                monday41.text = "S"
-                monday51.text = "S"
-                monday61.text = "M"
-                monday71.text = "T"
-                monday81.text = "W"
-
-            } else if (dayOfWeek == 1) {
-                Monday1.text = "F"
-                monday21.text = "S"
-                monday41.text = "S"
-                monday51.text = "M"
-                monday61.text = "T"
-                monday71.text = "W"
-                monday81.text = "T"
-
-            } else if (dayOfWeek == 2) {
-                Monday1.text = "S"
-                monday21.text = "S"
-                monday41.text = "M"
-                monday51.text = "T"
-                monday61.text = "W"
-                monday71.text = "T"
-                monday81.text = "F"
-            } else if (dayOfWeek == 3) {
-                Monday1.text = "S"
-                monday21.text = "M"
-                monday41.text = "T"
-                monday51.text = "W"
-                monday61.text = "T"
-                monday71.text = "F"
-                monday81.text = "S"
-            } else if (dayOfWeek == 4) {
-                Monday1.text = "M"
-                monday21.text = "T"
-                monday41.text = "W"
-                monday51.text = "T"
-                monday61.text = "F"
-                monday71.text = "S"
-                monday81.text = "S"
-
-            } else if (dayOfWeek == 5) {
-                Monday1.text = "T"
-                monday21.text = "W"
-                monday41.text = "T"
-                monday51.text = "F"
-                monday61.text = "S"
-                monday71.text = "S"
-                monday81.text = "M"
-            } else if (dayOfWeek == 6) {
-                Monday1.text = "W"
-                monday21.text = "T"
-                monday41.text = "F"
-                monday51.text = "S"
-                monday61.text = "S"
-                monday71.text = "M"
-                monday81.text = "T"
-            }
-            if (month == 0) {
-                datetime1.text = ("January, $year")
-            }
-            if (month == 1) {
-                datetime1.text = ("February, $year")
-            }
-            if (month == 2) {
-                datetime1.text = ("March, $year")
-            }
-            if (month == 3) {
-                datetime1.text = ("April, $year")
-            }
-            if (month == 4) {
-                datetime1.text = ("May, $year")
-            }
-            if (month == 5) {
-                datetime1.text = ("June, $year")
-            }
-            if (month == 6) {
-                datetime1.text = ("July, $year")
-            }
-            if (month == 7) {
-                datetime1.text = ("August, $year")
-            }
-            if (month == 8) {
-                datetime1.text = ("September, $year")
-            }
-            if (month == 9) {
-                datetime1.text = ("October, $year")
-            }
-            if (month == 10) {
-                datetime1.text = ("November, $year")
-            }
-            if (month == 11) {
-                datetime1.text = ("December, $year")
-            }
-    }
     private var listener : HomeTaskScreenButton? =null
     private var listener1 : deletingUser? = null
 
@@ -925,24 +1372,51 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
     //    listener1 = null
     }
     private fun hideDeleteDonebttns(){
-        val done_button_anim = AnimationUtils.loadAnimation(context, R.anim.done_button_anim_down)
-        val delete_button_anim = AnimationUtils.loadAnimation(
-            context,
-            R.anim.delete_done_button_down
-        )
-        val x_button_anim = AnimationUtils.loadAnimation(context, R.anim.x_button_anim_down)
+        val done_button_anim = AnimationUtils.loadAnimation(context,R.anim.done_button_anim_down)
+        val delete_button_anim = AnimationUtils.loadAnimation(context,R.anim.delete_done_button_down)
+        val x_button_anim = AnimationUtils.loadAnimation(context,R.anim.x_button_anim_down)
 
         done_button.startAnimation(done_button_anim)
         delete_task_button.startAnimation(delete_button_anim)
         cancel_selecting.startAnimation(x_button_anim)
+
+        delete_button_anim.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(animation: Animation?) {
+
+            }
+
+            override fun onAnimationEnd(animation: Animation?) {
+               delete_task_button.visibility = View.INVISIBLE
+            }
+
+            override fun onAnimationRepeat(animation: Animation?) {
+
+            }
+
+        })
+
+        done_button_anim.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(animation: Animation?) {
+
+            }
+
+            override fun onAnimationEnd(animation: Animation?) {
+                done_button.visibility = View.INVISIBLE
+                selected_item_funcs.visibility = View.INVISIBLE
+            }
+
+            override fun onAnimationRepeat(animation: Animation?) {
+            }
+
+        })
 
         x_button_anim.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(animation: Animation?) {
             }
 
             override fun onAnimationEnd(animation: Animation?) {
-                selected_item_funcs.visibility = View.INVISIBLE
 
+                cancel_selecting.visibility = View.INVISIBLE
 
             }
 
@@ -958,9 +1432,54 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
         val delete_button_anim = AnimationUtils.loadAnimation(context, R.anim.delete_button_anim_up)
         val x_button_anim = AnimationUtils.loadAnimation(context, R.anim.x_button_anim_up)
 
+
+
         done_button.startAnimation(done_button_anim)
         delete_task_button.startAnimation(delete_button_anim)
         cancel_selecting.startAnimation(x_button_anim)
+
+        x_button_anim.setAnimationListener(object : Animation.AnimationListener{
+            override fun onAnimationStart(animation: Animation?) {
+                cancel_selecting.visibility = View.VISIBLE
+            }
+
+            override fun onAnimationEnd(animation: Animation?) {
+            }
+
+            override fun onAnimationRepeat(animation: Animation?) {
+            }
+
+
+        })
+        done_button_anim.setAnimationListener(object : Animation.AnimationListener{
+            override fun onAnimationStart(animation: Animation?) {
+                done_button.visibility = View.VISIBLE
+            }
+
+            override fun onAnimationEnd(animation: Animation?) {
+            }
+
+            override fun onAnimationRepeat(animation: Animation?) {
+            }
+
+
+        })
+
+        delete_button_anim.setAnimationListener(object : Animation.AnimationListener{
+            override fun onAnimationStart(animation: Animation?) {
+                delete_task_button.visibility = View.VISIBLE
+            }
+
+            override fun onAnimationEnd(animation: Animation?) {
+
+            }
+
+            override fun onAnimationRepeat(animation: Animation?) {
+
+            }
+
+
+        })
 
         selected_item_funcs.visibility = View.VISIBLE
 
@@ -1023,14 +1542,7 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
             arrayOfItemViews.forEach { v ->
                 v.startAnimation(anim)
             }
-//            list.forEach { task ->
-//                task.checked = false
-//            }
-//            mTaskViewModel.deleteUser(list)
-//            Log.e("Delete" , "$list $List")
-//            position.clear()
-//            adapter.state = 0
-//            hideDeleteDonebttns()
+
             anim.setAnimationListener(object : Animation.AnimationListener {
                 override fun onAnimationStart(animation: Animation?) {
               }
@@ -1073,98 +1585,6 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
 
     }
 
-
-//    override fun onChecked(
-//        list: List<Taskie>,
-//        itemView: ArrayList<View>
-//    ) {
-//        this.List = list as ArrayList<Taskie>
-//
-//
-//        delete_task_button.setOnClickListener {
-//            val anim = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_out)
-//            itemView.forEach { v ->
-//                v.startAnimation(anim)
-//            }
-//
-//           hideDeleteDonebttns()
-//
-//            anim.setAnimationListener(object : Animation.AnimationListener {
-//                override fun onAnimationStart(animation: Animation?) {
-//
-//
-//
-//
-////                        if (itemView[0] == recyclerView[0]) {
-////                            unchecked.forEach { v ->
-////                                v.startAnimation(anim2)
-////                               imageView6.startAnimation(anim3)
-////                                textView8.startAnimation(anim4)
-////
-////                            }
-////
-////
-////                        }
-//
-//                }
-//
-//                override fun onAnimationEnd(animation: Animation?) {
-//                    list.forEach { task ->
-//
-//                        task.checked = false
-//
-//                    }
-//
-//                    itemView.forEach { v ->
-//                        v.alpha = 0F
-//                    }
-//                    mTaskViewModel.deleteUser(list)
-//
-////                    unchecked.forEach {
-////                        it.startAnimation(anim2)
-////                    }
-//
-//                    Log.e("Delete" , "$list $List")
-//
-//
-//
-//
-//                }
-//
-//                override fun onAnimationRepeat(animation: Animation?) {
-//
-//                }
-//
-//            })
-//
-//            list.forEach {
-//                adapter.notifyItemRemoved(it.taskId)
-//            }
-//
-//            Log.e("Delete2 " , "$list $List")
-//
-//    }
-//
-//        if (List.isEmpty()){
-//hideDeleteDonebttns()
-//
-//        }else if (selected_item_funcs.isVisible){
-//
-//        }
-//
-//        else {
-//showDeleteDonebtttns()
-//        }
-//
-//        Log.e("Delete 1" , "$list $List")
-//    }
-//    override fun unSelect(list: List<Taskie>) {
-//
-//        this.checkedList = list as ArrayList<Taskie>
-//
-//        selectedAdapter.setSelectedData(checkedList)
-//
-//    }
     override fun unSelectSelected(list: List<Taskie>) {
 
         this.selectedList = list as ArrayList<Taskie>
@@ -1187,7 +1607,7 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
 
         EditTask.invoke(task)
 
-       // Log.e("TaskForEditing" , "task is - ${task.title} , ${task.color} , ${task.dateLong}")
+
 
     }
 
