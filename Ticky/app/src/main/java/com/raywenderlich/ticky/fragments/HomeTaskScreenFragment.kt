@@ -1380,6 +1380,27 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
         delete_task_button.startAnimation(delete_button_anim)
         cancel_selecting.startAnimation(x_button_anim)
 
+        val layout = view?.gradient
+
+        val slide_down_anim = AnimationUtils.loadAnimation(context, R.anim.topfrombottom)
+
+        layout?.startAnimation(slide_down_anim)
+
+        slide_down_anim.setAnimationListener(object : Animation.AnimationListener{
+            override fun onAnimationStart(animation: Animation?) {
+            }
+
+            override fun onAnimationEnd(animation: Animation?) {
+                layout?.visibility = View.INVISIBLE
+            }
+
+            override fun onAnimationRepeat(animation: Animation?) {
+            }
+
+        })
+
+
+
         delete_button_anim.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(animation: Animation?) {
 
@@ -1432,11 +1453,18 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
         val delete_button_anim = AnimationUtils.loadAnimation(context, R.anim.delete_button_anim_up)
         val x_button_anim = AnimationUtils.loadAnimation(context, R.anim.x_button_anim_up)
 
+        val layout = view?.gradient
+
+        val slide_up_anim = AnimationUtils.loadAnimation(context, R.anim.bottomfromtop)
+        layout?.visibility = View.VISIBLE
+
+        layout?.startAnimation(slide_up_anim)
 
 
         done_button.startAnimation(done_button_anim)
         delete_task_button.startAnimation(delete_button_anim)
         cancel_selecting.startAnimation(x_button_anim)
+
 
         x_button_anim.setAnimationListener(object : Animation.AnimationListener{
             override fun onAnimationStart(animation: Animation?) {
