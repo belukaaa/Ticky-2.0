@@ -44,37 +44,8 @@ class OnboardingFragment: Fragment() {
         }
 
     }
-
-    private fun mySecondTryToAnimate() {
-
-        val rootHeight = Math.max(tralivali.width, tralivali.height / 2)
-
-        val centerx = tralivali.measuredWidth
-        val centery = tralivali.measuredHeight
-
-        val circular = ViewAnimationUtils.createCircularReveal(
-            onboarding_button,
-            centerx.toInt(),
-            centery.toInt(),
-            0f,
-            rootHeight.toFloat()
-        )
-
-        // val circularReveal = ViewAnimationUtils.createCircularReveal(onboarding_button , centerx, centery, 0f , rootHeight.toFloat() )
-
-
-        circular.duration = 2000
-        circular.start()
-      //  circularReveal.duration = 800
-      //  onboarding_button.visibility = INVISIBLE
-      //  circularReveal.start()
-    }
-
     private fun myFirstTryToAnimate() {
 
-      //  val scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 4f)
-     //   val scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 14f)
-       // val animations = ObjectAnimator.ofPropertyValuesHolder(onboarding_button1, scaleX, scaleY)
         val fadeOutAnim = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_out_anim)
         val fadeOutAnim1 = AnimationUtils.loadAnimation(requireContext() , R.anim.onboarding_button_animation)
         val animation123 = AnimationUtils.loadAnimation(requireContext(), R.anim.scale_from_button)

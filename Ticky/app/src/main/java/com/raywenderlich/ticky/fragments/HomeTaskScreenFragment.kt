@@ -94,8 +94,6 @@ class HomeTaskScreenFragment(val EditTask :(task : Taskie) -> Unit): Fragment() 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setDate()
-        val heroImageView = view.recycle
-        ViewCompat.setTransitionName(heroImageView, "hero_image")
 
         val ttb = AnimationUtils.loadAnimation(context, R.anim.ttb)
         val fadeIn = AnimationUtils.loadAnimation(context, R.anim.fade_in2)

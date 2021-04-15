@@ -39,12 +39,4 @@ class MySharedPreference(context : Context) {
         return pref.getBoolean(KEY , false)
     }
 
-
-    fun firstTaskSelected(value: Boolean) {
-        editor2.putBoolean(ONE_ON_ONE , value)
-        editor2.apply()
-    }
-    fun taskSelected(): Boolean {
-         return pref2.getBoolean(ONE_ON_ONE , false)
-    }
 }

@@ -102,52 +102,39 @@ class FirstScreenFragment: Fragment() {
     }
 
     private fun enableBlue(int: Int){
-
+        setDefaultPosition()
+        setDefaultColors()
         if (int == 2){
-            setDefaultPosition()
-            setDefaultColors()
             imageView1.visibility = View.VISIBLE
             Monday.setTextColor(resources.getColor(R.color.selectedItemColor))
             Monday.alpha = 1f
         }
         else if (int == 3) {
-            setDefaultColors()
-            setDefaultPosition()
             imageView21.visibility = View.VISIBLE
             monday2.setTextColor(resources.getColor(R.color.selectedItemColor))
             monday2.alpha = 1f
         }
         else if (int == 4) {
-            setDefaultColors()
-            setDefaultPosition()
             imageView31.visibility = View.VISIBLE
             monday4.setTextColor(resources.getColor(R.color.selectedItemColor))
             monday4.alpha = 1f
         }
         else if (int == 5) {
-            setDefaultColors()
-            setDefaultPosition()
             imageView4.visibility = View.VISIBLE
             monday5.setTextColor(resources.getColor(R.color.selectedItemColor))
             monday5.alpha = 1f
         }
         else if (int == 6){
-            setDefaultColors()
-            setDefaultPosition()
             imageView5.visibility = View.VISIBLE
             monday6.setTextColor(resources.getColor(R.color.selectedItemColor))
             monday6.alpha = 1f
         }
         else if (int == 0) {
-            setDefaultColors()
-            setDefaultPosition()
             imageView6.visibility = View.VISIBLE
             monday7.setTextColor(resources.getColor(R.color.selectedItemColor))
             monday7.alpha = 1f
         }
         else if (int == 1){
-            setDefaultColors()
-            setDefaultPosition()
             imageView7.visibility = View.VISIBLE
             monday8.setTextColor(resources.getColor(R.color.selectedItemColor))
             monday8.alpha = 1f
@@ -166,8 +153,6 @@ class FirstScreenFragment: Fragment() {
 
 // dayofweek = 2 monday
         if (dayOfWeek == 2) {
-
-
             enableBlue(dayOfWeek)
             monday?.text = dayOfMonth.toString()
             tuesday?.text = (dayOfMonth + 1).toString()

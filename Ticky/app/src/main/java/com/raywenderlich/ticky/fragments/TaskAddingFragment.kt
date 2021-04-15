@@ -43,7 +43,6 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
     var TASK_DATE1: Long? = 999999999999999999
     var TASK_COLORED: Int = 10
 
-    var KEYOBIARD_HEIGHT : Int? = 0
     private var CIRCLE_POSITION1: Boolean = false
     private var CIRCLE_POSITION2: Boolean = false
     private var CIRCLE_POSITION3: Boolean = false
@@ -66,9 +65,6 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
 
         activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
 
-
-//        WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE
-//        WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
     }
 
     override fun onCreateView(
@@ -79,18 +75,6 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
 
         val view = inflater.inflate(R.layout.adding_activity_task, container, false)
 
-
-
-
-
-
-        //
-       // })
-       //// view.getViewTreeObserver().addOnGlobalLayoutListener(OnGlobalLayoutListener {
-         //   val heightDiff: Int = view.getRootView().getHeight() - view.getHeight()
-        //    // IF height diff is more then 150, consider keyboard as visible.
-       //     Log.e("TAG", "height is $heightDiff")
-     //   })
 
         initViewModel()
 
@@ -113,13 +97,8 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN or WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
         val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.showSoftInput(view.Task_input , InputMethodManager.SHOW_IMPLICIT)
-//        imm.showSoftInput(view.Task_input, InputMethodManager.SHOW_IMPLICIT)
-
-//        view.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN or WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
-
 
 
         val btt1 = AnimationUtils.loadAnimation(context, R.anim.btt2)
@@ -282,17 +261,9 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
                 setToFalse()
             }
             else{
-                view?.circleRed?.visibility = VISIBLE
-                view?.circleOrange?.visibility = INVISIBLE
-                view?.circleYellow?.visibility = INVISIBLE
-                view?.circleGreen?.visibility = INVISIBLE
-                view?.lightBlue?.visibility = INVISIBLE
-                view?.circleBlue?.visibility = INVISIBLE
-                view?.circleUcnobi?.visibility = INVISIBLE
-                view?.circle_purple?.visibility = INVISIBLE
-                view?.circleRose?.visibility = INVISIBLE
-
                 setToFalse()
+                setViewDisable()
+                view?.circleRed?.visibility = VISIBLE
                 CIRCLE_POSITION1 = true
             }
 
@@ -309,18 +280,9 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
                 setToFalse()
             }
             else{
-                view?.circleRed?.visibility = INVISIBLE
-                view?.circleOrange?.visibility = VISIBLE
-                view?.circleYellow?.visibility = INVISIBLE
-                view?.circleGreen?.visibility = INVISIBLE
-                view?.lightBlue?.visibility = INVISIBLE
-                view?.circleBlue?.visibility = INVISIBLE
-                view?.circleUcnobi?.visibility = INVISIBLE
-                view?.circle_purple?.visibility = INVISIBLE
-                view?.circleRose?.visibility = INVISIBLE
-
-
                setToFalse()
+                setViewDisable()
+                view?.circleOrange?.visibility = VISIBLE
                 CIRCLE_POSITION2 = true
             }
         }
@@ -338,17 +300,9 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
 
             else{
 
-                view?.circleRed?.visibility = INVISIBLE
-                view?.circleOrange?.visibility = INVISIBLE
-                view?.circleYellow?.visibility = VISIBLE
-                view?.circleGreen?.visibility = INVISIBLE
-                view?.lightBlue?.visibility = INVISIBLE
-                view?.circleBlue?.visibility = INVISIBLE
-                view?.circleUcnobi?.visibility = INVISIBLE
-                view?.circle_purple?.visibility = INVISIBLE
-                view?.circleRose?.visibility = INVISIBLE
-
+            setViewDisable()
                setToFalse()
+                view?.circleYellow?.visibility = VISIBLE
                 CIRCLE_POSITION3 = true
             }
         }
@@ -363,18 +317,9 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
                 setToFalse()
             }
             else{
-
-                view?.circleRed?.visibility = INVISIBLE
-                view?.circleOrange?.visibility = INVISIBLE
-                view?.circleYellow?.visibility = INVISIBLE
-                view?.circleGreen?.visibility = VISIBLE
-                view?.lightBlue?.visibility = INVISIBLE
-                view?.circleBlue?.visibility = INVISIBLE
-                view?.circleUcnobi?.visibility = INVISIBLE
-                view?.circle_purple?.visibility = INVISIBLE
-                view?.circleRose?.visibility = INVISIBLE
-
+                setViewDisable()
                 setToFalse()
+                view?.circleGreen?.visibility = VISIBLE
                 CIRCLE_POSITION4 = true
             }
         }
@@ -390,17 +335,9 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
             }
             else{
 
-                view?.circleRed?.visibility = INVISIBLE
-                view?.circleOrange?.visibility = INVISIBLE
-                view?.circleYellow?.visibility = INVISIBLE
-                view?.circleGreen?.visibility = INVISIBLE
-                view?.lightBlue?.visibility = VISIBLE
-                view?.circleBlue?.visibility = INVISIBLE
-                view?.circleUcnobi?.visibility = INVISIBLE
-                view?.circle_purple?.visibility = INVISIBLE
-                view?.circleRose?.visibility = INVISIBLE
-
                 setToFalse()
+                setViewDisable()
+                view?.lightBlue?.visibility = VISIBLE
                 CIRCLE_POSITION5 = true
 
                           }
@@ -415,17 +352,9 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
                 setToFalse()
             }
             else{
-                view?.circleRed?.visibility = INVISIBLE
-                view?.circleOrange?.visibility = INVISIBLE
-                view?.circleYellow?.visibility = INVISIBLE
-                view?.circleGreen?.visibility = INVISIBLE
-                view?.lightBlue?.visibility = INVISIBLE
-                view?.circleBlue?.visibility = VISIBLE
-                view?.circleUcnobi?.visibility = INVISIBLE
-                view?.circle_purple?.visibility = INVISIBLE
-                view?.circleRose?.visibility = INVISIBLE
-
+                setViewDisable()
                 setToFalse()
+                view?.circleBlue?.visibility = VISIBLE
                 CIRCLE_POSITION6=true
             }
 
@@ -440,18 +369,9 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
                 setToFalse()
             }
             else{
-
-                view?.circleRed?.visibility = INVISIBLE
-                view?.circleOrange?.visibility = INVISIBLE
-                view?.circleYellow?.visibility = INVISIBLE
-                view?.circleGreen?.visibility = INVISIBLE
-                view?.lightBlue?.visibility = INVISIBLE
-                view?.circleBlue?.visibility = INVISIBLE
-                view?.circleUcnobi?.visibility = VISIBLE
-                view?.circle_purple?.visibility = INVISIBLE
-                view?.circleRose?.visibility = INVISIBLE
-
+                setViewDisable()
                 setToFalse()
+                view?.circleUcnobi?.visibility = VISIBLE
                 CIRCLE_POSITION7 = true
 
             }
@@ -467,18 +387,9 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
                 setToFalse()
             }
             else{
-
-                view?.circleRed?.visibility = INVISIBLE
-                view?.circleOrange?.visibility = INVISIBLE
-                view?.circleYellow?.visibility = INVISIBLE
-                view?.circleGreen?.visibility = INVISIBLE
-                view?.lightBlue?.visibility = INVISIBLE
-                view?.circleBlue?.visibility = INVISIBLE
-                view?.circleUcnobi?.visibility = INVISIBLE
-                view?.circle_purple?.visibility = VISIBLE
-                view?.circleRose?.visibility = INVISIBLE
-
+                setViewDisable()
                 setToFalse()
+                view?.circle_purple?.visibility = VISIBLE
                 CIRCLE_POSITION8 = true
             }
         }
@@ -493,19 +404,9 @@ class TaskAddingFragment: Fragment() , DatePickerDialog.OnDateSetListener {
                 setToFalse()
             }
             else{
-
-                view?.circleRed?.visibility = INVISIBLE
-                view?.circleOrange?.visibility = INVISIBLE
-                view?.circleYellow?.visibility = INVISIBLE
-                view?.circleGreen?.visibility = INVISIBLE
-                view?.lightBlue?.visibility = INVISIBLE
-                view?.circleBlue?.visibility = INVISIBLE
-                view?.circleUcnobi?.visibility = INVISIBLE
-                view?.circle_purple?.visibility = INVISIBLE
-                view?.circleRose?.visibility = VISIBLE
-
-
+                setViewDisable()
                 setToFalse()
+                view?.circleRose?.visibility = VISIBLE
                 CIRCLE_POSITION9 = true
             }
         }
